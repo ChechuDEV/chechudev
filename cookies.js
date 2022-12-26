@@ -29,6 +29,6 @@ continueBtn.onclick = () => {
 	window.localStorage.setItem("hide-consent", "26DEC");
 };
 
-if (window.localStorage.getItem("hide-consent") != "27DEC") {
+if (window.localStorage.getItem("hide-consent") != "26DEC") {
 	document.body.appendChild(div);
 }
