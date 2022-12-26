@@ -41,10 +41,6 @@ footer {
     margin-top: 3em;
     text-align: center;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap:1em;
 }
 footer p {
     text-align: center;
