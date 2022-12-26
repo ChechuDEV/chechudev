@@ -121,7 +121,7 @@ nav ul li a::after {
     z-index: -1;
 }
 
-.mobile-button p:after, .mobile-button p:before {
+.mobile-button p::after, .mobile-button p::before {
     transition: all 250ms;
     position: absolute;
     content: "";
@@ -131,10 +131,10 @@ nav ul li a::after {
     left: 0;
 }
 
-.mobile-button p:after {
+.mobile-button p::after {
     top: -.5em;
 }
-.mobile-button p:before {
+.mobile-button p::before {
     top: .5em;
 }
 
@@ -142,11 +142,11 @@ nav.show .mobile-button p {
     transform: rotate(45deg);
 }
 
-nav.show .mobile-button p:after {
+nav.show .mobile-button p::after {
     transform: translate(0,8px);
 }
 
-nav.show .mobile-button p:before {
+nav.show .mobile-button p::before {
     transform:  rotate(90deg) translate(-8px,0px);
 
 }
