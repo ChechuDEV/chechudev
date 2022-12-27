@@ -515,24 +515,24 @@ textarea {
 }
 
 .social-media {
-	width: 50px;
 	text-align: center;
 	position: fixed;
-	right: 0;
-	top: 50%;
-	transform: translate(0, -50%);
+	left: 50%;
+	bottom: 0;
+	transform: translate(-50%, 0);
 	background-color: white;
 	border-top: 0.15em solid black;
-	border-bottom: 0.15em solid black;
+	border-bottom: 0 solid black;
 	border-left: 0.15em solid black;
+	border-right: 0.15em solid black;
 	border-radius: 0.25em 0 0 0.25em;
 	padding: 0;
 }
 
 .social-media ul {
 	display: flex;
+	flex-direction: row;
 	justify-content: center;
-	flex-direction: column;
 	align-items: center;
 	list-style: none;
 	padding: 0;
@@ -702,6 +702,23 @@ textarea {
 	.policy-disappear {
 		animation: cookies-disappear-floating 500ms ease-in-out forwards;
 	}
+
+    .social-media {
+        width: 52px;
+        height: 100px;
+        top: 50%;
+        left: 100%;
+        transform: translate(-100%, -50%);
+        border-top: 0.15em solid black;
+	border-bottom: 0.15em solid black;
+	border-left: 0.15em solid black;
+	border-radius: 0.25em 0 0 0.25em;
+    }
+
+    .social-media ul {
+        flex-direction: column;
+
+    }
 }
 @media (min-width: 1024px) {
 	.container {
