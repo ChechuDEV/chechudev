@@ -1,5 +1,5 @@
 # 💫 About Me:
-🔭 I’m currently working on my own projects<br>🌱 I’m currently learning C++<br>💬 Ask me about anything<br>⚡ Fun fact, this is a test
+🔭 I’m currently working on my own projects<br>🌱 I’m currently learning C++<br>💬 Ask me about anything<br>⚡ Fun fact, I also like 3D modeling and printing 
 
 
 ## 🌐 Socials:
