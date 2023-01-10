@@ -1,4 +1,5 @@
 ---
+import Header from "../components/Header.astro";
 ---
 
 <html lang="en">
@@ -7,9 +8,36 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>ChechuDEV</title>
+
+
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<Header/>
 	</body>
 </html>
+
+
+<style is:global>
+      @font-face {
+    font-family: "Montserrat";
+    src: url("/fonts/Montserrat-VariableFont_wght.ttf") format("truetype"); /* Chrome 26+, Opera 23+, Firefox 39+ */
+  }
+  @font-face {
+    font-family: "Montserrat";
+    font-style: italic;
+    src: url("/fonts/Montserrat-Italic-VariableFont_wght.ttf") format("truetype"); /* Chrome 26+, Opera 23+, Firefox 39+ */
+  }
+  
+    body, html {
+        height: 100%;
+        margin: 0;
+
+    }
+
+    body {
+        font-size: 16px;
+        font-family: 'Montserrat';
+        font-weight: 400;
+    }
+</style>
