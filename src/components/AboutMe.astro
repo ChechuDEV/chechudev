@@ -1,33 +1,56 @@
 ---
-
 import Section from "./Section.astro";
-import Skill from "./Skill.astro";---
+import Skill from "./Skill.astro";
+import Accordion from "./Accordion.astro";
+---
 <Section title="About me">
     <p>
-        Hello! I'm Chechu, a full-stack software developer with a passion for creating innovative and user-friendly
-        applications. As a freelancer, I have the freedom to take on a wide range of projects and have had the
-        opportunity to work with clients from various industries, including web development and custom Minecraft
-        plugins.
-</p><p>
-        I have 4 years of experience in the industry and am skilled in a variety of programming languages and
-        frameworks, including Java, Spring and C++. I am committed to delivering high-quality products that meet the
-        needs of my clients and am always looking for ways to improve my skills and stay up-to-date with the latest
-        technologies.
+        Hello! I’m Chechu, a freelance software developer with a passion for creating innovative, user-friendly, and
+        efficient applications. As a freelancer, I have the freedom to take on a wide range of projects and have had the
+        opportunity to work with clients from various industries. I specialise in frontend and backend development,
+        creating custom Minecraft plugins, and much more, and am committed to delivering high-quality products that meet
+        the needs of my clients.
     </p>
+    <p>
+        Concurrently, I am pursuing a degree in software engineering, further enriching my knowledge of the field and
+        expanding my skill set. Additionally, I am actively seeking opportunities to expand my knowledge through
+        independent study and exploration of emerging technologies.
+    </p>
+    <Accordion action="Click to expand my story">
+        <p>
+            I’ve been coding for 10 years, and programming has always been my passion. By 2018, I had already learned
+            several languages. It was then that I dug into the world of Minecraft plugin development using Java. The
+            success of my first plugin was a turning point, gathering significant downloads and support and fueling my
+            motivation to further pursue programming as a hobby.
+        </p>
+        <p>
+            Over the years, I’ve owned some small-scale Minecraft servers and developed a Point of Sale
+            (POS) system and a website for a family business. In 2021, I decided to offer my services publicly, albeit
+            as a side pursuit due to academic commitments. However, by 2023, I began to approach freelancing with a
+            greater sense of dedication, and this year (2024), I’ve made software development my primary focus.
+        </p>
+        <p>
+            While Minecraft may be a video game, the work involved in developing plugins is substantial. Each plugin is
+            a software piece developed using Java and Kotlin. This journey has been instrumental in my specialization
+            across diverse domains of software development, including server-side applications, desktop software, and
+            web applications.
+        </p>
+    </Accordion>
+
     <p>
         Next, you can see a list of my skills and the percentage of proficiency I have in each of them. If you want to
         know more about me or have any questions, feel free to contact me! The percentage of proficiency is based on my
         experience and the projects I have worked on.
     </p>
     <div class="skills">
-        <Skill name="Java" percent=90 />
-        <Skill name="Kotlin" percent=85 />
-        <Skill name="HTML & CSS" percent=85 />
-        <Skill name="Git" percent=80 />
-        <Skill name="Go" percent=65 />
-        <Skill name="Javascript" percent=60 />
-        <Skill name="C & C++" percent=55 />
-        <Skill name="Rust" percent=45 />
+        <Skill percent=90 name="Java"/>
+        <Skill percent=85 name="Kotlin"/>
+        <Skill percent=85 name="HTML & CSS"/>
+        <Skill percent=80 name="Git"/>
+        <Skill percent=70 name="Go"/>
+        <Skill percent=60 name="Javascript"/>
+        <Skill percent=55 name="C & C++"/>
+        <Skill percent=45 name="Rust"/>
     </div>
 </Section>
 
