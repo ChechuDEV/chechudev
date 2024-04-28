@@ -1,0 +1,48 @@
+---
+
+import Section from "./Section.astro";
+import Skill from "./Skill.astro";---
+<Section title="About me">
+    <p>
+        Hello! I'm Chechu, a full-stack software developer with a passion for creating innovative and user-friendly
+        applications. As a freelancer, I have the freedom to take on a wide range of projects and have had the
+        opportunity to work with clients from various industries, including web development and custom Minecraft
+        plugins.
+</p><p>
+        I have 4 years of experience in the industry and am skilled in a variety of programming languages and
+        frameworks, including Java, Spring and C++. I am committed to delivering high-quality products that meet the
+        needs of my clients and am always looking for ways to improve my skills and stay up-to-date with the latest
+        technologies.
+    </p>
+    <p>
+        Next, you can see a list of my skills and the percentage of proficiency I have in each of them. If you want to
+        know more about me or have any questions, feel free to contact me! The percentage of proficiency is based on my
+        experience and the projects I have worked on.
+    </p>
+    <div class="skills">
+        <Skill name="Java" percent=90 />
+        <Skill name="Kotlin" percent=85 />
+        <Skill name="HTML & CSS" percent=85 />
+        <Skill name="Git" percent=80 />
+        <Skill name="Go" percent=65 />
+        <Skill name="Javascript" percent=60 />
+        <Skill name="C & C++" percent=55 />
+        <Skill name="Rust" percent=45 />
+    </div>
+</Section>
+
+<style>
+    .skills {
+        margin-top: 1.5rem;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-column-gap: .5rem;
+        grid-row-gap: .5rem;
+    }
+
+    @media (max-width: 768px) {
+        .skills {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+</style>

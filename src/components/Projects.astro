@@ -1,0 +1,55 @@
+---
+import Section from "./Section.astro";
+import Card from "./Card.astro";
+---
+<Section title="Projects">
+    <p>
+        I am currently working on a project called MPM (Mod Plugin Manager) for Infinity Projects. I am also working as
+        a Freelancer on Fiverr on various projects. Next, you can see some of the featured projects I have worked on.
+    </p>
+    <ul class="cards">
+        <Card title="MPM (Mod Plugin Manager)" area="Minecraft plugin & API (Kotlin)"
+              href="https://github.com/infinity-projects-de/MPM">
+            <p>
+                MPM is a Minecraft plugin that serves as an API for developers to easily create plugins with custom
+                items, blocks and more with custom textures. It also allows compatibility with other plugins
+                using this API, effectively preventing conflicts.
+            </p>
+        </Card>
+        <Card title="Algorithm visualiser" area="Web application" image="/Algorithms.png"
+              href="https://github.com/ChechuDEV/algorithm-visualiser">
+            <p>
+                This project is a visualisation of various sorting algorithms, it runs in the browser and allows
+                the user to change the speed of the visualisation and the size of the array to sort. It also plays
+                some sounds while the array is being sorted.
+            </p>
+            <p>
+                It currently features two basic sorting algorithms: Selection Sort and Insertion Sort.
+            </p>
+            <p>
+                More algorithms will be added in the future, and you can already see some of them on my TikTok account.
+            </p>
+        </Card>
+        <Card title="MCDevTools" area="Web application & tool" image="/MCDevTools.png" href="https://mcdevtools.com">
+            <p>
+                MCDevTools is a web application that allows Minecraft plugin developers to easily test their plugins
+                on a remote and fast server. This was created to help developers who don't have a powerful computer.
+            </p>
+            <p>
+                In the future, it would also feature the ability to include bots to test the plugins with many players.
+            </p>
+            <p>
+                I still haven't published the source code for this project. The infrastructure/backend
+                is done with Go, while frontend is made with NextJS. Unfortunately, the project is currently
+                on hold.
+            </p>
+        </Card>
+    </ul>
+</Section>
+<style>
+    .cards {
+        display: flex;
+        flex-direction: column;
+        padding: 0 0 0 0;
+    }
+</style>

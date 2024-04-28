@@ -1,0 +1,57 @@
+---
+import { Image} from "astro:assets";
+interface Props {
+    action: string;
+    icon: string;
+    href?: string;
+    click?: string;
+}
+
+const {action, icon, href, click} = Astro.props;
+
+const hasClick = click !== undefined;
+
+const svgPath = `/icons/${icon}.svg`;
+
+if (click !== undefined && href !== undefined) {
+    console.error(`You can't have both href and click in the same button. The href will be ignored.`);
+}
+
+---
+{ hasClick ?
+    <span onclick={click} class="button" title={action}>
+        <Image src={svgPath} alt={action} width=16 height=16 format="svg" class="icon"/>
+    </span> :
+    <a href={href} class="button" title={action}>
+        <Image src={svgPath} width=16 height=16 alt={action} format="svg" class="icon"/>
+    </a> }
+<style>
+    .button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 3rem;
+        height: 3rem;
+        margin: 0 0.5rem;
+        border-radius: 50%;
+        transition: opacity 0.3s;
+        cursor: pointer;
+        opacity: 0.5;
+    }
+
+    .button:hover {
+        opacity: 1;
+    }
+
+    .button img {
+        -webkit-user-drag: none;
+        width: 2rem;
+        height: 2rem;
+        fill: var(--subtitle-color);
+
+    }
+
+    .button .icon {
+        color: var(--subtitle-color);
+    }
+</style>

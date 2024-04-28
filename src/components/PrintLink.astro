@@ -1,0 +1,14 @@
+---
+interface Props {
+    href: string;
+}
+
+const { href } = Astro.props;
+const displayLink = href.startsWith('mailto') ? href.substring(7) : href;
+---
+<a href={href}>{displayLink}</a>
+<style>
+    a {
+        display: inline;
+    }
+</style>

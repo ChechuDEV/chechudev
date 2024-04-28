@@ -1,0 +1,47 @@
+---
+interface Props {
+    title: string;
+}
+
+const { title } = Astro.props;
+---
+<div class="section">
+    <h3>{title}</h3>
+    <div class="content">
+        <slot/>
+    </div>
+</div>
+<style>
+    .section {
+        margin-bottom: 3rem;
+        width: 800px;
+        margin-inline: auto;
+    }
+
+    .section h3 {
+        font-size: 1.75rem;
+        color: var(--subtitle-color);
+        font-weight: 900;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .content {
+        font-family: "Open Sans", sans-serif;
+        font-weight: 400;
+    }
+
+    @media (max-width: 768px) {
+        .section {
+            width: 90%;
+            margin-inline: auto;
+
+        }
+    }
+
+    @media print {
+        .section {
+            width: 100%;
+        }
+    }
+</style>

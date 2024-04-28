@@ -1,0 +1,160 @@
+---
+import { Image } from "astro:assets"
+interface Props {
+    title: string;
+    image?: string;
+    href: string;
+    area: string;
+}
+
+const {href, title, image, area} = Astro.props;
+
+const hasImage = image !== undefined;
+---
+
+<li class="link-card">
+    <a class="card" href={href}>
+        <div class="title">
+            <h4>
+                {title}
+                <span>&rarr;</span>
+            </h4>
+            <span class="area">
+				{area}
+			</span>
+        </div>
+
+
+        <div class="content">
+            <div class="body">
+                <slot/>
+                <span class="more">{href}</span>
+            </div>
+            {hasImage && <Image src={image} height=200 width=300 alt={title}/>}
+        </div>
+    </a>
+</li>
+<li class="printable-card">
+    <div class="card" >
+        <div class="title">
+            <h4>
+                {title}
+                <span>&rarr;</span>
+            </h4>
+            <span class="area">
+				{area}
+			</span>
+        </div>
+
+
+        <div class="content">
+            <div class="body">
+                <slot/>
+                <a href={href} class="more">{href}</a>
+            </div>
+        </div>
+    </div>
+</li>
+<style>
+    .card img {
+        height: 200px;
+        border-radius: 5px;
+        margin-top: 1em;
+    }
+
+    .link-card, .printable-card {
+        margin: 0;
+        list-style: none;
+    }
+
+    .card {
+        display: block;
+        padding: 1em 0.5em;
+        text-decoration: none;
+        transition: background-color 200ms;
+    }
+
+    .card:hover {
+        background: #f0f0f0;
+       // box-shadow: 0 0 0 0.5rem #f0f0f0;
+        border-radius: 0.1rem;
+    }
+
+    .card:hover img {
+        opacity: 1;
+    }
+
+    .more {
+        display: block;
+     //   text-align: right;
+        margin-top: 1em;
+        font-size: 0.9rem;
+        color: var(--accent-color);
+        font-family: "Montserrat", sans-serif;
+    }
+
+
+    h4 {
+        margin: 0;
+        font-size: 1.25rem;
+        color: var(--subtitle-color);
+    }
+
+    .content {
+        display: flex;
+        gap: 1em;
+    }
+
+    .body {
+        margin: 0;
+        display: block;
+        color: black;
+    }
+
+    .title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .area {
+        font-size: 1rem;
+        color: var(--subtitle-color);
+        font-family: "Montserrat", sans-serif;
+        font-weight: 600;
+    }
+
+    p {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+    }
+
+    .printable-card {
+        display: none;
+    }
+
+    @media (max-width: 768px) {
+        .card img {
+            height: auto;
+            width: 100%;
+        }
+        .title {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .content {
+            flex-direction: column-reverse;
+        }
+    }
+
+    @media print {
+        .printable-card {
+            display: block;
+            page-break-inside: avoid;
+        }
+        .link-card {
+            display: none;
+        }
+    }
+</style>

@@ -1,0 +1,83 @@
+---
+
+import HeaderAction from "./HeaderAction.astro";
+import PrintLink from "./PrintLink.astro";
+---
+<header>
+    <div class="title">
+        <h1>Chechu</h1>
+        <h2>Software developer</h2>
+    </div>
+    <div class="actions">
+        <HeaderAction href="https://github.com/ChechuDEV" icon="GitHub" action="GitHub profile"/>
+        <HeaderAction href="https://tiktok.com/@chechudev" icon="TikTok" action="TikTok profile"/>
+        <HeaderAction href="mailto:me@chechu.dev" icon="Mail" action="Contact me via email"/>
+        <HeaderAction click="window.print()" icon="Download" action="Download CV" />
+    </div>
+    <div class="print-info">
+        <PrintLink href="https://chechu.dev"/>
+        <PrintLink href="https://github.com/ChechuDEV"/>
+        <PrintLink href="mailto:me@chechu.dev"/>
+    </div>
+</header>
+
+
+<style>
+    header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 0;
+        font-size: 16px;
+        width: 100%;
+        background-color: white;
+    }
+
+    .title {
+        text-align: center;
+        padding: 4rem 0;
+    }
+
+    h1 {
+        margin: 0;
+        font-size: 5rem;
+        color: var(--title-color);
+        font-weight: 800;
+    }
+
+    h2 {
+        margin: 0;
+        font-size: 2rem;
+        color: var(--subtitle-color);
+        font-weight: 700;
+    }
+
+    .actions {
+        display: flex;
+    }
+
+
+    .print-info {
+        display: none;
+    }
+
+    @media print {
+        .actions {
+            display: none;
+        }
+        header {
+            padding: 2em 0;
+        }
+        .title {
+            padding: 0 0;
+        }
+        .print-info {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1em;
+            text-align: center;
+            padding: 1rem 0;
+        }
+    }
+</style>

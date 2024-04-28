@@ -1,0 +1,93 @@
+---
+interface Props {
+    name: string;
+    percent: string;
+}
+
+const {name, percent} = Astro.props;
+
+const percentValue = parseInt(percent, 10);
+
+if (percentValue < 0 || percentValue > 100) {
+    throw new Error('Percent value must be between 0 and 100');
+}
+
+if (isNaN(percentValue)) {
+    throw new Error('Percent value must be a number');
+}
+---
+<div class="skill">
+    <span class="name">{name}</span>
+    <span class="percent">{percent}%</span>
+</div>
+<style define:vars={{percent}}>
+    :root {
+        --border-radius: .33rem;
+    }
+    .skill {
+        position: relative;
+        flex-grow: 3;
+        height: 32px;
+        background-color: var(--area-color);
+        border-radius: var(--border-radius);
+        transition: background-color 200ms;
+    }
+
+    .skill::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: calc(var(--percent) * 1%);
+        height: 100%;
+        background-color: var(--accent-color);
+        border-radius: var(--border-radius);
+        animation: ease-in-out 1s expand;
+    }
+
+    @keyframes expand {
+        0% {
+            width: 0;
+        }
+    }
+
+    .skill span {
+        position: absolute;
+        top: 50%;
+        left: 1rem;
+        transform: translate(0, -50%);
+        font-family: "Montserrat", sans-serif;
+        color: white;
+        font-weight: 700;
+        transition: opacity 200ms;
+    }
+
+    .name {
+        font-size: 1rem;
+    }
+
+    .percent {
+        opacity: 0;
+    }
+
+    .skill:hover .percent {
+        opacity: 1;
+    }
+    .skill:hover .name {
+        opacity: 0;
+    }
+    .skill:hover {
+        background-color: var(--hover-color);
+    }
+
+    @media print {
+        .name {
+            font-size: 14px;
+        }
+        .percent {
+            opacity: 1;
+            width: 85%;
+            text-align: right;
+        }
+    }
+</style>
