@@ -13,10 +13,13 @@ const { action } = Astro.props;
     </div>
 </div>
 <script>
-    const accordion: HTMLElement = document.querySelector('.accordion');
-    const content: HTMLElement = document.querySelector('.accordion-content');
+    const accordion: HTMLElement | null = document.querySelector('.accordion');
+    const content: HTMLElement | null = document.querySelector('.accordion-content');
     if (!accordion || !content) {
         throw new Error('Accordion component is missing required elements');
+    }
+    if (!content.style) {
+        throw new Error('Accordion component requires CSS');
     }
     content.style.transition = 'max-height 0.2s ease-in-out';
     accordion.addEventListener('click', () => {
