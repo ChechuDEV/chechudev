@@ -24,7 +24,6 @@ const { action } = Astro.props;
     content.style.transition = 'max-height 0.2s ease-in-out';
     accordion.addEventListener('click', () => {
         if (content.style.maxHeight === '0px' || content.style.maxHeight === '') {
-            //animation
             content.style.maxHeight = `${content.scrollHeight}px`;
         } else {
             content.style.maxHeight = '0';
