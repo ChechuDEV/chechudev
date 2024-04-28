@@ -19,12 +19,24 @@ if (click !== undefined && href !== undefined) {
 
 ---
 { hasClick ?
-    <span onclick={click} class="button" title={action}>
+    <span onclick={click} class="button" title={action} tabindex="0">
         <Image src={svgPath} alt={action} width=16 height=16 format="svg" class="icon"/>
     </span> :
     <a href={href} class="button" title={action}>
         <Image src={svgPath} width=16 height=16 alt={action} format="svg" class="icon"/>
     </a> }
+
+<script>
+    const spans: NodeListOf<HTMLElement> = document.querySelectorAll('span.button')
+
+    spans.forEach(span => {
+        span.addEventListener('keydown', (e: KeyboardEvent) => {
+            if (e.key === 'Enter') {
+                span.onclick(null)
+            }
+        })
+    })
+</script>
 <style>
     .button {
         display: flex;

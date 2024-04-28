@@ -6,7 +6,7 @@ interface Props {
 const { action } = Astro.props;
 ---
 <div class="accordion">
-    <a class="accordion-toggle">{ action } &darr;</a>
+    <span class="accordion-toggle">{ action } &darr;</span>
 
     <div class="accordion-content">
         <slot/>
