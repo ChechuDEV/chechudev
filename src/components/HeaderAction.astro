@@ -32,7 +32,9 @@ if (click !== undefined && href !== undefined) {
     spans.forEach(span => {
         span.addEventListener('keydown', (e: KeyboardEvent) => {
             if (e.key === 'Enter') {
-                span.onclick(null)
+                if(span.onclick !== null) {
+                    span.onclick(new MouseEvent('mousedown'))
+                }
             }
         })
     })
