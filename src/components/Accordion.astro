@@ -13,9 +13,12 @@ const { action } = Astro.props;
     </div>
 </div>
 <script>
-    const accordion = document.querySelector('.accordion');
-    const content = document.querySelector('.accordion-content');
-content.style.transition = 'max-height 0.2s ease-in-out';
+    const accordion: HTMLElement = document.querySelector('.accordion');
+    const content: HTMLElement = document.querySelector('.accordion-content');
+    if (!accordion || !content) {
+        throw new Error('Accordion component is missing required elements');
+    }
+    content.style.transition = 'max-height 0.2s ease-in-out';
     accordion.addEventListener('click', () => {
         if (content.style.maxHeight === '0px' || content.style.maxHeight === '') {
             //animation
