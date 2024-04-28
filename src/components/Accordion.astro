@@ -1,0 +1,62 @@
+---
+interface Props {
+    action: string;
+}
+
+const { action } = Astro.props;
+---
+<div class="accordion">
+    <a class="accordion-toggle">{ action } &darr;</a>
+
+    <div class="accordion-content">
+        <slot/>
+    </div>
+</div>
+<script>
+    const accordion = document.querySelector('.accordion');
+    const content = document.querySelector('.accordion-content');
+content.style.transition = 'max-height 0.2s ease-in-out';
+    accordion.addEventListener('click', () => {
+        if (content.style.maxHeight === '0px' || content.style.maxHeight === '') {
+            //animation
+            content.style.maxHeight = '400px';
+
+
+        } else {
+            content.style.maxHeight = '0';
+        }
+    });
+</script>
+<style>
+    .accordion {
+        padding: 0 1em;
+        border-left: 1px solid var(--accent-color);
+    }
+
+    .accordion-toggle {
+        display: block;
+        text-decoration: none;
+        color: var(--accent-color);
+        cursor: pointer;
+        user-select: none;
+    }
+
+    .accordion-content {
+        max-height: 0;
+        overflow: hidden;
+    }
+
+    @media print {
+        .accordion {
+            border: none;
+            padding: 0;
+        }
+        .accordion-toggle {
+            display: none;
+        }
+        .accordion-content {
+            max-height: none;
+            overflow: visible;
+        }
+    }
+</style>
