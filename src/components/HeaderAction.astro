@@ -19,10 +19,10 @@ if (click !== undefined && href !== undefined) {
 
 ---
 { hasClick ?
-    <span onclick={click} class="button" title={action} tabindex="0">
+    <span onclick={click} class="button hover:scale-110 transition-all" title={action} tabindex="0">
         <Image src={svgPath} alt={action} width=16 height=16 format="svg" class="icon"/>
     </span> :
-    <a href={href} class="button" title={action}>
+    <a href={href} class="button hover:scale-110 transition-all" title={action}>
         <Image src={svgPath} width=16 height=16 alt={action} format="svg" class="icon"/>
     </a> }
 
@@ -48,9 +48,9 @@ if (click !== undefined && href !== undefined) {
         height: 3rem;
         margin: 0 0.5rem;
         border-radius: 50%;
-        transition: opacity 0.3s;
         cursor: pointer;
         opacity: 0.5;
+        filter: var(--filter);
     }
 
     .button:hover {
@@ -61,11 +61,14 @@ if (click !== undefined && href !== undefined) {
         -webkit-user-drag: none;
         width: 2rem;
         height: 2rem;
-        fill: var(--subtitle-color);
-
+        fill: var(--title-color);
+        color: var(--title-color)
     }
 
+    
+
     .button .icon {
+        fill: var(--title-color);
         color: var(--subtitle-color);
     }
 </style>
