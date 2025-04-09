@@ -7,13 +7,13 @@ import Layout from "../layouts/Layout.astro";
 <Layout title="Tsvetozar Biserov">
   <nav class="fixed top-0 left-0 w-full flex justify-center">
     <div
-      class="flex justify-between items-center h-16 border-t-2 border-l-2 border-transparent backdrop-blur mt-4 w-3/4 px-4 rounded-xl transition-all bg-white/20 border-white/20"
+      class="flex justify-center md:justify-between items-center h-16 border-t-2 border-l-2 border-transparent backdrop-blur mt-4 w-3/4 px-4 rounded-xl transition-all bg-white/20 border-white/20"
       id="navbar"
     >
       <a href="/" class="ml-2 text-2xl font-serif text-white"
         >Tsvetozar Biserov</a
       >
-      <div class="flex gap-2 -mt-0.5">
+      <div class="hidden md:flex gap-2 -mt-0.5">
         <a
           href="#about"
           class="text-black bg-white px-6 py-2 rounded-lg transition-all"
@@ -34,18 +34,20 @@ import Layout from "../layouts/Layout.astro";
   </nav>
 
   <div
-    class="flex flex-col justify-center items-center gap-6 p-12 h-full bg-gradient-to-b from-blue-900 to-slate-900"
+    class="flex flex-col justify-center items-center gap-6 p-6 md:p-12 h-full bg-gradient-to-b from-blue-900 to-slate-900"
     id="header"
   >
-    <h1 class="text-4xl font-serif font-light text-gray-300">
+    <h1
+      class="text-3xl text-center md:text-4xl font-serif font-light text-gray-300"
+    >
       Hi! I'm Tsvetozar Biserov
     </h1>
 
     <div class="flex flex-col justify-center items-center gap-2">
-      <h2 class="text-6xl font-semibold text-white">
+      <h2 class="text-5xl text-center md:text-6xl font-semibold text-white">
         Backend Engineer & API Developer
       </h2>
-      <h2 class="text-6xl font-semibold text-blue-300">
+      <h2 class="text-5xl text-center md:text-6xl font-semibold text-blue-300">
         Crafting Scalable Solutions
       </h2>
     </div>
