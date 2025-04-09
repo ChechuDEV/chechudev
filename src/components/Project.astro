@@ -1,31 +1,35 @@
 ---
 interface Props {
-    name: string,
-    simpleName: string,
-    stack: string[],
-    description: string,
-    link: string,
+  name: string;
+  simpleName: string;
+  stack: string[];
+  description: string;
+  link: string;
 }
 
-const { name, simpleName, stack, description, link  } = Astro.props;
+const { name, simpleName, stack } = Astro.props;
+---
 
---- 
+<div
+  class="dark:bg-blue-950 rounded-xl p-8 shadow-xl flex flex-col gap-2 text-gray-300 hover:text-gray-200 transition-all group relative"
+>
+  <div class="flex flex-col justify-center items-start">
+    <span class="text-gray-400 text-sm">{simpleName}</span>
+    <h3 class="text-2xl font-bold text-white text-right">{name}</h3>
+  </div>
 
-<div class="dark:bg-blue-950 rounded-xl p-8 shadow-xl flex flex-col gap-2 text-gray-300 hover:text-gray-200 transition-all group relative">
-    <div class="flex flex-col justify-center items-start">
-        <span class="text-gray-400 text-sm">{ simpleName }</span>
-        <h3 class="text-2xl font-bold text-white text-right">{ name }</h3>
-    </div>
-    
-
-    <p>Simcenter allows racing simulation center employees to manage their simulators from a single place, with an intuitive and easy-to-use interface and installation process.</p>
-    <div class="py-3">
-        <ul class="flex flex-row flex-wrap gap-2">
-            { stack.map((tech) => (
-                <li class="px-3 py-1 bg-indigo-700 rounded-xl">{tech}</li>
-            ))}
-        </ul>
-    </div>
-    
-
+  <p>
+    Simcenter allows racing simulation center employees to manage their
+    simulators from a single place, with an intuitive and easy-to-use interface
+    and installation process.
+  </p>
+  <div class="py-3">
+    <ul class="flex flex-row flex-wrap gap-2">
+      {
+        stack.map((tech) => (
+          <li class="px-3 py-1 bg-indigo-700 rounded-xl">{tech}</li>
+        ))
+      }
+    </ul>
+  </div>
 </div>

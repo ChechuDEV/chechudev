@@ -1,17 +1,22 @@
 ---
 import Section from "./Section.astro";
-import Skill from "./Skill.astro";
-import Accordion from "./Accordion.astro";
 ---
 
 <Section title="About me">
-    <p>
-        Hello! I'm Tsvetozar, a software engineer specializing in full-stack development. With a decade of programming experience, I craft efficient, scalable solutions across web, desktop, and server-side applications. Currently pursuing a software engineering degree while actively working on client projects.
-    </p>
-    <p>
-        My expertise spans modern web technologies, backend systems, and enterprise Java/Kotlin development. I've built everything from high-performance server plugins to full-stack web applications, always focusing on clean code and optimal user experience. 
-    </p>
-   <!-- <Accordion action="Click to expand my story">
+  <p>
+    Hello! I'm Tsvetozar, a software engineer specializing in full-stack
+    development. With a decade of programming experience, I craft efficient,
+    scalable solutions across web, desktop, and server-side applications.
+    Currently pursuing a software engineering degree while actively working on
+    client projects.
+  </p>
+  <p>
+    My expertise spans modern web technologies, backend systems, and enterprise
+    Java/Kotlin development. I've built everything from high-performance server
+    plugins to full-stack web applications, always focusing on clean code and
+    optimal user experience.
+  </p>
+  <!-- <Accordion action="Click to expand my story">
         <p>
             I’ve been coding for 10 years, and programming has always been my
             passion. By 2018, I had already learned several languages. It was
@@ -37,7 +42,7 @@ import Accordion from "./Accordion.astro";
             including server-side applications, desktop software, and web
             applications.
         </p>
-    </Accordion> -->
+    </Accordion>
     <h4>My journey</h4>
     <WorkExp start="2024" end="PRESENT" position="Freelance Software Developer">
         <ul>
@@ -72,30 +77,28 @@ import Accordion from "./Accordion.astro";
         <Skill percent="70" name="Javascript" />
         <Skill percent="65" name="Rust" />
         <Skill percent="65" name="C++" />
-    </div>
+    </div>-->
 </Section>
 
 <style>
-   
-  
-    h4 {
-        font-size: 1.25rem;
-        color: var(--heading-color);
-        font-weight: 600;
-        margin-top: 0;
-        margin-bottom: 0;
-    }
-    .skills {
-        margin-top: 1.5rem;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-column-gap: 0.5rem;
-        grid-row-gap: 0.5rem;
-    }
+  h4 {
+    font-size: 1.25rem;
+    color: var(--heading-color);
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .skills {
+    margin-top: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 0.5rem;
+    grid-row-gap: 0.5rem;
+  }
 
-    @media (max-width: 768px) {
-        .skills {
-            grid-template-columns: repeat(2, 1fr);
-        }
+  @media (max-width: 768px) {
+    .skills {
+      grid-template-columns: repeat(2, 1fr);
     }
+  }
 </style>

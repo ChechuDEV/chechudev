@@ -1,12 +1,10 @@
 ---
 import { getCollection, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
-import { Image } from "astro:assets";
-
 
 export async function getStaticPaths() {
-  const posts = await getCollection('projects');
-  return posts.map(project => ({
+  const posts = await getCollection("projects");
+  return posts.map((project) => ({
     params: { id: project.id },
     props: { project },
   }));
@@ -14,13 +12,10 @@ export async function getStaticPaths() {
 
 const { project } = Astro.props;
 const { Content } = await render(project);
-
 ---
+
 <Layout title={project.data.title}>
   <div class="mx-auto prose dark:prose-invert">
-    <img class="w-full rounded-xl shadow-xl" src=""/>
     <Content />
-
   </div>
-
 </Layout>

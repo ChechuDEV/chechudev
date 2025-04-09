@@ -2,79 +2,152 @@
 import GeneralSkill from "../components/GeneralSkill.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import Layout from "../layouts/Layout.astro";
-import Image from "astro/components/Image.astro";
 ---
 
 <Layout title="Tsvetozar Biserov">
-    <nav class="fixed top-0 left-0 w-full flex justify-center ">
-        <div class="flex justify-between items-center h-16 border-t-2 border-l-2 border-transparent backdrop-blur mt-4 w-3/4 px-4 rounded-xl transition-all" id="navbar">
-            <a href="/" class="ml-2 text-2xl font-serif text-white">Tsvetozar Biserov</a>
-            <div class="flex gap-2 -mt-0.5">
-                <a href="#about" class="text-black  bg-white px-6 py-2 rounded-lg transition-all">About</a>
-                <a href="#projects" class="text-white hover:bg-white/30 px-6 py-2 rounded-lg transition-all">Projects</a>
-                <a href="#contact" class="text-white hover:bg-white/30 px-6 py-2 rounded-lg transition-all">Contact</a>
-            </div>
-        </div>
-    </nav>
-
-
-    <div class="flex flex-col justify-center items-center gap-6 p-12 h-full bg-gradient-to-b from-blue-900 to-slate-900" id="header">   
-        <h1 class="text-4xl font-serif font-light text-gray-300">Hi! I'm Tsvetozar Biserov</h1>
-
-        <div class="flex flex-col justify-center items-center gap-2">
-        <h2 class="text-6xl font-semibold text-white">Backend Engineer & API Developer</h2>
-        <h2 class="text-6xl font-semibold text-blue-300">Crafting Scalable Solutions</h2>
-        </div>
-        <div class="flex flex-col justify-center items-center gap-2 mt-2">
-            <a href="#contact" class="text-lg transition-all bg-blue-700 hover:bg-blue-600 px-6 py-3 rounded-lg shadow">Let's talk</a>
-            <span class="text-slate-400 text-sm">Available for freelance projects</span>
-        </div>
+  <nav class="fixed top-0 left-0 w-full flex justify-center">
+    <div
+      class="flex justify-between items-center h-16 border-t-2 border-l-2 border-transparent backdrop-blur mt-4 w-3/4 px-4 rounded-xl transition-all"
+      id="navbar"
+    >
+      <a href="/" class="ml-2 text-2xl font-serif text-white"
+        >Tsvetozar Biserov</a
+      >
+      <div class="flex gap-2 -mt-0.5">
+        <a
+          href="#about"
+          class="text-black bg-white px-6 py-2 rounded-lg transition-all"
+          >About</a
+        >
+        <a
+          href="#projects"
+          class="text-white hover:bg-white/30 px-6 py-2 rounded-lg transition-all"
+          >Projects</a
+        >
+        <a
+          href="#contact"
+          class="text-white hover:bg-white/30 px-6 py-2 rounded-lg transition-all"
+          >Contact</a
+        >
+      </div>
     </div>
+  </nav>
 
-    <div class="flex flex-col gap-12 w-2/3 mx-auto">
-        <section class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
-            <GeneralSkill name="Backend Development" description="Building scalable server-side systems with Go, Java, Kotlin, and NodeJS." icon="/icons/server.svg"/>
-            <GeneralSkill name="Database & Storage" description="Optimized database solutions with MySQL, MongoDB, and Redis." icon="/icons/database.svg"/>
-            <GeneralSkill name="API Development" description="RESTful and GraphQL APIs with Gin, Spring and Express." icon="/icons/cloud.svg"/>
-            <GeneralSkill name="DevOps & Infrastructure" description="CI/CD pipelines, Docker, Github Actions." icon="/icons/git-branch.svg"/>
-        </section>
+  <div
+    class="flex flex-col justify-center items-center gap-6 p-12 h-full bg-gradient-to-b from-blue-900 to-slate-900"
+    id="header"
+  >
+    <h1 class="text-4xl font-serif font-light text-gray-300">
+      Hi! I'm Tsvetozar Biserov
+    </h1>
 
-        <section class="flex flex-col gap-4">
-            <h3 class="text-center font-serif text-2xl">Projects</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-                <ProjectCard image="/images/simcenter.png" title="Simcenter" description="Distributed control system that synchronises multiple Assetto Corsa game sessions accross different computers." stack={["Go", "Svelte", "Gin"]}/>
-                <ProjectCard image="/images/LumenProxy.png" title="Lumen Proxy" description="Game proxy system that manages multiple connections simultaneously. Eases up host configuration and improves administration tools." stack={["Rust", "Networking"]}/>
-                <ProjectCard title="Melius" description="Minecraft Game Server made from scratch, decreasing resource usage and improving performance." stack={["Kotlin", "Minestom"]}/>
-                <ProjectCard title="Mod Plugin Manager" description="Minecraft plugin that allows developers to add custom objects and textures to the game without mods or conflicts between each other." stack={["Kotlin", "Minecraft", "Spigot API"]}/>
-                <ProjectCard image="/images/MCDevTools.png" title="MCDevTools" description="A project featuring a set of tools to deploy ephemeral Minecraft development servers with speed and ease." stack={["Go", "NextJS", "Docker"]}/>
-                <ProjectCard image="/images/Algorithms.png" title="Algorithm Visualizer" description="Website for visualizing different sorting algorithms, measure their time, operations amount, etc." stack={["TypeScript", "AstroJS"]}/>
-            </div>
-        </section>
+    <div class="flex flex-col justify-center items-center gap-2">
+      <h2 class="text-6xl font-semibold text-white">
+        Backend Engineer & API Developer
+      </h2>
+      <h2 class="text-6xl font-semibold text-blue-300">
+        Crafting Scalable Solutions
+      </h2>
     </div>
+    <div class="flex flex-col justify-center items-center gap-2 mt-2">
+      <a
+        href="#contact"
+        class="text-lg transition-all bg-blue-700 hover:bg-blue-600 px-6 py-3 rounded-lg shadow"
+        >Let's talk</a
+      >
+      <span class="text-slate-400 text-sm"
+        >Available for freelance projects</span
+      >
+    </div>
+  </div>
 
-    <footer class="py-12 mt-12 flex flex-col justify-center items-center bg-gradient-to-b from-slate-900 to-blue-950 text-white">
-        Copyright © Tsvetozar Biserov 2025
-    </footer>
+  <div class="flex flex-col gap-12 w-2/3 mx-auto">
+    <section class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+      <GeneralSkill
+        name="Backend Development"
+        description="Building scalable server-side systems with Go, Java, Kotlin, and NodeJS."
+        icon="/icons/server.svg"
+      />
+      <GeneralSkill
+        name="Database & Storage"
+        description="Optimized database solutions with MySQL, MongoDB, and Redis."
+        icon="/icons/database.svg"
+      />
+      <GeneralSkill
+        name="API Development"
+        description="RESTful and GraphQL APIs with Gin, Spring and Express."
+        icon="/icons/cloud.svg"
+      />
+      <GeneralSkill
+        name="DevOps & Infrastructure"
+        description="CI/CD pipelines, Docker, Github Actions."
+        icon="/icons/git-branch.svg"
+      />
+    </section>
 
+    <section class="flex flex-col gap-4">
+      <h3 class="text-center font-serif text-2xl">Projects</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+        <ProjectCard
+          image="/images/simcenter.png"
+          title="Simcenter"
+          description="Distributed control system that synchronises multiple Assetto Corsa game sessions accross different computers."
+          stack={["Go", "Svelte", "Gin"]}
+        />
+        <ProjectCard
+          image="/images/LumenProxy.png"
+          title="Lumen Proxy"
+          description="Game proxy system that manages multiple connections simultaneously. Eases up host configuration and improves administration tools."
+          stack={["Rust", "Networking"]}
+        />
+        <ProjectCard
+          title="Melius"
+          description="Minecraft Game Server made from scratch, decreasing resource usage and improving performance."
+          stack={["Kotlin", "Minestom"]}
+        />
+        <ProjectCard
+          title="Mod Plugin Manager"
+          description="Minecraft plugin that allows developers to add custom objects and textures to the game without mods or conflicts between each other."
+          stack={["Kotlin", "Minecraft", "Spigot API"]}
+        />
+        <ProjectCard
+          image="/images/MCDevTools.png"
+          title="MCDevTools"
+          description="A project featuring a set of tools to deploy ephemeral Minecraft development servers with speed and ease."
+          stack={["Go", "NextJS", "Docker"]}
+        />
+        <ProjectCard
+          image="/images/Algorithms.png"
+          title="Algorithm Visualizer"
+          description="Website for visualizing different sorting algorithms, measure their time, operations amount, etc."
+          stack={["TypeScript", "AstroJS"]}
+        />
+      </div>
+    </section>
+  </div>
+
+  <footer
+    class="py-12 mt-12 flex flex-col justify-center items-center bg-gradient-to-b from-slate-900 to-blue-950 text-white"
+  >
+    Copyright © Tsvetozar Biserov 2025
+  </footer>
 </Layout>
 
 <script>
-    const navbar = document.getElementById("navbar")
-    const header = document.getElementById("header")
-    function scroll() {
-        if (window.scrollY > 10) {
-            navbar?.classList.add("bg-white/20")
-            navbar?.classList.add("border-white/20")
-            navbar?.classList.remove("border-transparent")
-        } else {
-            navbar?.classList.remove("bg-white/20")
-            navbar?.classList.remove("border-white/20")
-            navbar?.classList.add("border-transparent")
-
-        }
+  const navbar = document.getElementById("navbar");
+  function scroll() {
+    if (window.scrollY > 10) {
+      navbar?.classList.add("bg-white/20");
+      navbar?.classList.add("border-white/20");
+      navbar?.classList.remove("border-transparent");
+    } else {
+      navbar?.classList.remove("bg-white/20");
+      navbar?.classList.remove("border-white/20");
+      navbar?.classList.add("border-transparent");
     }
-    document.addEventListener('scroll', (e) => {
-        scroll();
-    })
+  }
+  document.addEventListener("scroll", () => {
     scroll();
+  });
+  scroll();
 </script>

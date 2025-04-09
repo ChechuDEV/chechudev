@@ -31,9 +31,6 @@ const { title } = Astro.props;
 </html>
 
 <script>
-	const mouseLight = document.getElementById('mouse-light');
-
-	
 /*
 	document.addEventListener('mousemove', (e) => {
 		const center = {
@@ -215,7 +212,7 @@ const { title } = Astro.props;
 	}
 	});
 
-	document.body.onload = ((e) => {
+	document.body.onload = (() => {
 		document.body.style.opacity = "1";
 		document.body.style.transition = "all 1s";
 	});
