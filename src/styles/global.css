@@ -1,7 +1,10 @@
 @import "tailwindcss";
 
 @theme {
-    --color-dark-blue: #00172A;
+  --color-dark-blue: #00172a;
 }
+
+@source inline('bg-white/20');
+@source inline('border-white/20');
 
 @plugin "@tailwindcss/typography";
