@@ -7,7 +7,7 @@ import Layout from "../layouts/Layout.astro";
 <Layout title="Tsvetozar Biserov">
   <nav class="fixed top-0 left-0 w-full flex justify-center">
     <div
-      class="flex justify-between items-center h-16 border-t-2 border-l-2 border-transparent backdrop-blur mt-4 w-3/4 px-4 rounded-xl transition-all"
+      class="flex justify-between items-center h-16 border-t-2 border-l-2 border-transparent backdrop-blur mt-4 w-3/4 px-4 rounded-xl transition-all bg-white/20 border-white/20"
       id="navbar"
     >
       <a href="/" class="ml-2 text-2xl font-serif text-white"
@@ -135,6 +135,9 @@ import Layout from "../layouts/Layout.astro";
 
 <script>
   const navbar = document.getElementById("navbar");
+  navbar?.classList.remove("bg-white/20");
+  navbar?.classList.remove("border-white/20");
+
   function scroll() {
     if (window.scrollY > 10) {
       navbar?.classList.add("bg-white/20");
