@@ -1,11 +1,12 @@
 ---
+import "../styles/global.css";
+
 interface Props {
 	title: string;
 }
 
 const { title } = Astro.props;
 ---
-
 <!doctype html>
 <html lang="en">
 	<head>
@@ -16,30 +17,11 @@ const { title } = Astro.props;
 		<link rel="canonical" href="https://chechu.dev"/>
 		<title>{title}</title>
 	</head>
-	<body>
+	<body class="bg-slate-900 text-white relative">
 		<slot />
 	</body>
 </html>
 <style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-
-		--title-color: #012a4a;
-		--subtitle-color: #2A6F97;
-		--area-color: #A9D6E5;
-		--hover-color: #89C2D9;
-		--accent-color: #01497C;
-		//https://coolors.co/palette/012a4a-013a63-01497c-014f86-2a6f97-2c7da0-468faf-61a5c2-89c2d9-a9d6e5
-	}
-
 	@font-face {
 		font-family: "Montserrat";
 		font-style: normal;
@@ -48,47 +30,20 @@ const { title } = Astro.props;
 	}
 
 	@font-face {
-		font-family: "Open Sans";
+		font-family: "Inter";
 		font-style: normal;
 		font-display: swap;
-		src: url("/fonts/OpenSans-Regular.ttf") format("truetype");
+		src: url("/fonts/Inter.ttf") format("truetype");
 	}
 
-	html {
-		font-family: "Open Sans", sans-serif;
-		font-weight: 500;
-		scroll-behavior: smooth;
-	}
-
-	html, body {
+	body, html {
 		margin: 0;
 		padding: 0;
 		height: 100%;
+		font-family: "Inter", sans-serif;
+		scroll-behavior: smooth;
 	}
 
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
-
-	h1, h2, h3, h4, h5, h6 {
-		font-family: "Montserrat", sans-serif;
-	}
-
-	@media print {
-		@page {
-			margin: 1.5cm 2cm;
-			size: A4;
-		}
-		body {
-			font-size: 14px;
-		}
+	h2 {
 	}
 </style>
