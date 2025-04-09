@@ -1,0 +1,223 @@
+---
+import "../styles/global.css";
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+
+
+
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="I'm Chechu, a software developer currently working as a freelancer." />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="canonical" href="https://chechu.dev"/>
+		<title>{title}</title>
+	</head>
+	<body class="bg-gray-100 text-black dark:bg-dark-blue dark:text-white">
+		<!--<button id="theme-toggle">Toggle theme</button> -->
+		<slot />
+		<div id="mouse-light" class="mouse-light"></div>
+
+		<div class="bg-light"></div>
+	</body>
+</html>
+
+<script>
+	const mouseLight = document.getElementById('mouse-light');
+
+	
+/*
+	document.addEventListener('mousemove', (e) => {
+		const center = {
+			x: window.innerWidth / 2,
+			y: window.innerHeight / 2
+		};
+
+		const dx = (e.clientX - center.x);
+		const dy = (e.clientY - center.y);
+
+		const distance = Math.sqrt(dx * dx + dy * dy);
+
+		const modifier = 0.4;
+		const mx = e.clientX - modifier * dx;
+		const my = e.clientY - modifier * dy;
+
+		if (mouseLight != null){
+			mouseLight.style.left = mx + 'px';
+			mouseLight.style.top = my + 'px';
+			mouseLight.style.width = distance + 'px';
+			mouseLight.style.height = distance + 'px';
+		}
+	});*/
+</script>
+
+
+<style is:global>
+	.mouse-light {
+		position: fixed;
+		width: 500px;
+		height: 500px;
+		background: radial-gradient(circle, var(--header-gradient-start) 5%, var(--header-gradient-end) 70%);
+		border-radius: 50%;
+		pointer-events: none;
+		transform: translate(-50%, -50%);
+		z-index: -50;
+	}
+
+	:root {
+
+
+
+		/*--accent: 136, 58, 234;
+		--accent-light: 224, 204, 250;
+		--accent-dark: 49, 10, 101;
+		--accent-gradient: linear-gradient(
+			45deg,
+			rgb(var(--accent)),
+			rgb(var(--accent-light)) 30%,
+			white 60%
+		);
+
+		--title-color: #012a4a;
+		--subtitle-color: #2A6F97;
+		--area-color: #A9D6E5;
+		--hover-color: #89C2D9;
+		--accent-color: #01497C;
+		//https://coolors.co/palette/012a4a-013a63-01497c-014f86-2a6f97-2c7da0-468faf-61a5c2-89c2d9-a9d6e5
+*/
+
+		--bg-color: #00172A;
+		--title-color: #ffffff;
+		--subtitle-color: #a9d6e5;
+		--heading-color: #ffffff;
+		--text-color: #e1e1e1;
+
+		--header-gradient-start: rgba(1, 42, 74, 0.75);
+		--header-gradient-end: rgba(1, 42, 74, 0);
+
+		--filter: invert(1);
+	}
+
+	
+	[data-theme="light"] {
+		--bg-color: #ffffff;
+
+		--title-color: #012A4A;
+		--subtitle-color: #2A6F97;
+		--heading-color: #000;
+		--text-color: #1e1e1e;
+
+		--header-gradient-start: rgba(168, 214, 229, 0.5);
+		--header-gradient-end: rgba(168, 214, 229, 0);
+
+		--loading-color: #2A6F97;
+
+		--filter: invert(0);
+	}
+
+	@font-face {
+		font-family: "Montserrat";
+		font-style: normal;
+		font-display: swap;
+		src: url("/fonts/Montserrat-VariableFont_wght.ttf") format("truetype");
+	}
+
+	@font-face {
+		font-family: "Inter";
+		font-style: normal;
+		font-display: swap;
+		src: url("/fonts/Inter.ttf") format("truetype");
+	}
+
+	html, body {
+		margin: 0;
+		padding: 0;
+		height: 100%;
+		font-family: "Inter", sans-serif;
+		scroll-behavior: smooth;
+	}
+
+	body {
+		/*background-color: var(--bg-color);
+		color: var(--text-color);*/
+		position:relative;
+		opacity: 0;
+		transition: all 1s;
+	}
+
+	
+	code {
+		font-family:
+			Menlo,
+			Monaco,
+			Lucida Console,
+			Liberation Mono,
+			DejaVu Sans Mono,
+			Bitstream Vera Sans Mono,
+			Courier New,
+			monospace;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		font-family: "Montserrat", sans-serif;
+	}
+
+	p {
+		line-height: 150%;
+	}
+
+	@media print {
+		@page {
+			margin: 1.5cm 2cm;
+			size: A4;
+		}
+		body {
+			font-size: 14px;
+		}
+	}
+</style>
+
+<script>
+	const toggle = document.getElementById('theme-toggle');
+	const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+	// Set initial theme
+	const theme = localStorage.getItem('theme') || 
+	(prefersDark.matches ? 'dark' : 'light');
+	document.documentElement.setAttribute('data-theme', theme);
+
+	// Handle toggle
+	if (toggle != null){
+		toggle.addEventListener('click', () => {
+		const currentTheme = document.documentElement.getAttribute('data-theme');
+		const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+		
+		document.documentElement.setAttribute('data-theme', newTheme);
+		localStorage.setItem('theme', newTheme);
+	});
+}
+
+	// Handle system preference changes
+	prefersDark.addEventListener('change', (e) => {
+	if (!localStorage.getItem('theme')) {
+		document.documentElement.setAttribute(
+		'data-theme', 
+		e.matches ? 'dark' : 'light'
+		);
+	}
+	});
+
+	document.body.onload = ((e) => {
+		document.body.style.opacity = "1";
+		document.body.style.transition = "all 1s";
+	});
+
+</script>

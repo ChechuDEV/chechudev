@@ -3,16 +3,26 @@
 import HeaderAction from "./HeaderAction.astro";
 import PrintLink from "./PrintLink.astro";
 ---
-<header>
+<header class="flex flex-col justify-center items-center py-14 antialiased">
+<!--<div class="top-0 left-0 fixed w-full z-50 my-4">
+    <nav class="flex justify-center items-center mx-auto ">
+        <ul class="flex flex-col gap-4 justify-center px-1 py-2 bg-white/10 rounded-3xl backdrop-blur-md items-center">
+            <li><a class="px-4 py-1 block rounded-full bg-white/30">About</a></li>
+            <li><a class="px-4 py-1 block rounded-full">Projects</a></li>
+            <li><a class="px-4 py-1 block rounded-full">Work</a></li>
+        </ul>
+    </nav> 
+</div>-->
+   
     <div class="title">
-        <h1>Chechu</h1>
-        <h2>Software developer</h2>
+        <h1 class="font-normal">Tsvetozar Biserov</h1>
+        <h2 class="font-light">Software Engineer</h2>
     </div>
     <div class="actions">
-        <HeaderAction href="https://github.com/ChechuDEV" icon="GitHub" action="GitHub profile"/>
-        <HeaderAction href="https://tiktok.com/@chechudev" icon="TikTok" action="TikTok profile"/>
-        <HeaderAction href="mailto:me@chechu.dev" icon="Mail" action="Contact me via email"/>
-        <HeaderAction click="window.print()" icon="Download" action="Download CV" />
+        <HeaderAction href="https://github.com/ChechuDEV" icon="github" action="GitHub profile"/>
+        <HeaderAction href="https://www.linkedin.com/in/tsvetozar-biserov-320885209/" icon="linkedin" action="LinkedIn profile"/>
+        <HeaderAction href="mailto:me@chechu.dev" icon="at-sign" action="Contact me via email"/>
+        <HeaderAction click="window.print()" icon="file-text" action="Download CV" />
     </div>
     <div class="print-info">
         <PrintLink href="https://chechu.dev"/>
@@ -27,33 +37,45 @@ import PrintLink from "./PrintLink.astro";
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 2rem 0;
         font-size: 16px;
-        width: 100%;
-        background-color: white;
+        width: 100%;        
     }
+
+    
 
     .title {
         text-align: center;
         padding: 4rem 0;
+        position: relative;
+    } 
+
+    .title::after {
+        content: "";
+        position: absolute;
+		background: radial-gradient(circle, var(--header-gradient-start) 25%, var(--header-gradient-end) 70%);
+        width: 850px;
+        aspect-ratio: 1;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: -10;
     }
 
     h1 {
         margin: 0;
-        font-size: 5rem;
+        font-size: clamp(2rem, 5vw, 4rem);
         color: var(--title-color);
-        font-weight: 800;
     }
 
     h2 {
         margin: 0;
-        font-size: 2rem;
+        font-size: clamp(1.5rem, 5vw, 2.5rem);
         color: var(--subtitle-color);
-        font-weight: 700;
     }
 
     .actions {
         display: flex;
+       
     }
 
 
@@ -78,14 +100,6 @@ import PrintLink from "./PrintLink.astro";
             gap: 1em;
             text-align: center;
             padding: 1rem 0;
-        }
-    }
-    @media (max-width: 768px) {
-        h1 {
-            font-size: 4rem;
-        }
-        h2 {
-            font-size: 1.5rem;
         }
     }
 </style>

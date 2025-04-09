@@ -5,39 +5,29 @@ interface Props {
 
 const { title } = Astro.props;
 ---
-<div class="section">
-    <h3>{title}</h3>
-    <div class="content">
+<div class="mx-auto !max-w-[120ch] font-light mb-10">
+    <h3 class="font-normal text-4xl text-center py-5">{title}</h3>
+    <div class="dark:text-slate-400">
         <slot/>
     </div>
 </div>
 <style>
     .section {
         margin-bottom: 2rem;
-        width: 800px;
-        margin-inline: auto;
+        margin-inline: auto; 
+        position:relative;
     }
 
     .section h3 {
-        font-size: 1.75rem;
-        color: var(--subtitle-color);
-        font-weight: 900;
         margin-top: 0;
         margin-bottom: 0;
     }
 
     .content {
-        font-family: "Open Sans", sans-serif;
-        font-weight: 400;
+        font-family: "Inter", sans-serif;
     }
 
-    @media (max-width: 768px) {
-        .section {
-            width: 90%;
-            margin-inline: auto;
 
-        }
-    }
 
     @media print {
         .section {

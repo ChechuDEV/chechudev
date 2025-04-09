@@ -6,21 +6,12 @@ import Accordion from "./Accordion.astro";
 
 <Section title="About me">
     <p>
-        Hello! I’m Chechu, a freelance software developer with a passion for
-        creating innovative, user-friendly, and efficient applications. As a
-        freelancer, I have the freedom to take on a wide range of projects and
-        have had the opportunity to work with clients from various industries. I
-        specialise in frontend and backend development, creating custom
-        Minecraft plugins, and much more, and am committed to delivering
-        high-quality products that meet the needs of my clients.
+        Hello! I'm Tsvetozar, a software engineer specializing in full-stack development. With a decade of programming experience, I craft efficient, scalable solutions across web, desktop, and server-side applications. Currently pursuing a software engineering degree while actively working on client projects.
     </p>
     <p>
-        Concurrently, I am pursuing a degree in software engineering, further
-        enriching my knowledge of the field and expanding my skill set.
-        Additionally, I am actively seeking opportunities to expand my knowledge
-        through independent study and exploration of emerging technologies.
+        My expertise spans modern web technologies, backend systems, and enterprise Java/Kotlin development. I've built everything from high-performance server plugins to full-stack web applications, always focusing on clean code and optimal user experience. 
     </p>
-    <Accordion action="Click to expand my story">
+   <!-- <Accordion action="Click to expand my story">
         <p>
             I’ve been coding for 10 years, and programming has always been my
             passion. By 2018, I had already learned several languages. It was
@@ -46,7 +37,24 @@ import Accordion from "./Accordion.astro";
             including server-side applications, desktop software, and web
             applications.
         </p>
-    </Accordion>
+    </Accordion> -->
+    <h4>My journey</h4>
+    <WorkExp start="2024" end="PRESENT" position="Freelance Software Developer">
+        <ul>
+            <li>Diseño e implementación de sistemas backend de alto rendimiento utilizando Go</li>
+            <li>Optimización de sistemas existentes mejorando el rendimiento y la eficiencia</li>
+            <li>Desarrollo de soluciones escalables para clientes empresariales</li>
+            <li>Tecnologías principales: Go, Java/Kotlin, Svelte, PostgreSQL</li>
+            <li>Gestión integral de proyectos desde el diseño hasta la implementación</li>
+        </ul>
+        Proyectos destacados:
+        <ul>
+            <li>Desarrollo de sistemas de gestión empresarial con arquitectura distribuida</li>
+            <li>Implementación de APIs y servicios web de alta disponibilidad</li>
+            <li>Optimización y modernización de sistemas legacy</li>
+        </ul> 
+    </WorkExp>
+
 
     <p>
         Next, you can see a list of my skills and the percentage of proficiency
@@ -68,6 +76,15 @@ import Accordion from "./Accordion.astro";
 </Section>
 
 <style>
+   
+  
+    h4 {
+        font-size: 1.25rem;
+        color: var(--heading-color);
+        font-weight: 600;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
     .skills {
         margin-top: 1.5rem;
         display: grid;

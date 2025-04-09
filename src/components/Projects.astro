@@ -1,12 +1,30 @@
 ---
 import Section from "./Section.astro";
 import Card from "./Card.astro";
+import { getCollection } from "astro:content";
+import Project from "./Project.astro";
+import { Image } from "astro:assets";
+
+const svelte = "/stack/svelte.svg"
+const go = "/stack/go.svg"
+
+const projects = await getCollection("projects");
+
 ---
+
+
+
 <Section title="Projects">
-    <p>
-        I am currently working on a project called MPM (Mod Plugin Manager) for Infinity Projects. I am also working as
-        a Freelancer on Fiverr on various projects. Next, you can see some of the featured projects I have worked on.
-    </p>
+    <div class="grid grid-cols-3 auto-rows-fr gap-4">
+        <Project name="MOTD Changer" simpleName="Minecraft plugin" stack={["Java", "Spigot API"]} link="https://" description="With over 8000 downloads, MOTD Changer is a Minecraft plugin that allows server admins to change their server's Message Of The Day on demand, for a time, undefinedly, colored and rotating."/>
+        <Project name="Simcenter" simpleName="Remote control panel" stack={["Go", "Svelte"]} link="https://simcenter.gg" description="Simcenter allows racing simulation center employees to manage their simulators from a single place, with an intuitive and easy-to-use interface and installation process."/>
+        <Project name="Infinity Proxy" simpleName="High-end server proxy" stack={["Rust", "PostgreSQL"]} link="https://" description="Connected to a database, infinity proxy automatically redirects users to the server they are requesting access to. Simplifies the setup process for server owners and allows for easy scaling."/>
+    </div>
+
+    <a href="/projects" class="bg-blue-700 px-4 py-2 rounded-xl transition-all text-white mt-4 block my-4 mx-auto">
+        View all projects
+    </a>
+
     <ul class="cards">
         <Card title="MPM (Mod Plugin Manager)" area="Minecraft plugin & API (Kotlin)"
               href="https://github.com/infinity-projects-de/MPM">
