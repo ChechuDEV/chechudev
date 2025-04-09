@@ -1,0 +1,131 @@
+---
+title: 'SimCenter - Racing Simulator Management Dashboard'
+description: 'Centralized control system for managing multiple Assetto Corsa racing simulators, enabling synchronized game sessions and configurations across simulation stations.'
+tech: ['Go', 'React', 'WebSocket', 'System Management']
+date: '2024-01'
+status: 'Production'
+client: 'Racing Simulation Centers'
+thumbnail: https://picsum.photos/400/300
+image: https://picsum.photos/600/300
+---
+
+## Overview
+
+SimCenter is a centralized management system that controls multiple Assetto Corsa racing simulator stations simultaneously. It eliminates the need for manual configuration of each station, enabling operators to manage race sessions, settings, and configurations from a single dashboard.
+
+## Key Features
+
+### Centralized Control
+- Simultaneous launch of race sessions across all stations
+- Synchronized game settings and configurations
+- Real-time status monitoring of all stations
+- Preset management for different event types
+
+### Station Management
+```go
+type SimStation struct {
+    ID          string    `json:"id"`
+    Status      string    `json:"status"`
+    CurrentGame *GameSession `json:"current_game"`
+    Config      StationConfig `json:"config"`
+}
+
+func (s *SimStation) ApplyConfig(cfg ConfigPreset) error {
+    // Apply configuration to local Assetto Corsa instance
+    // Handle file modifications and game settings
+}
+
+```
+
+### Real-time Monitoring
+
+```typescript
+interface StationStatus {
+  id: string;
+  isOnline: boolean;
+  currentSession?: {
+    track: string;
+    car: string;
+    timeRemaining: number;
+    players: Player[];
+  };
+  systemMetrics: {
+    cpu: number;
+    memory: number;
+    temperature: number;
+  };
+}
+```
+
+## Technical Architecture
+
+### System Design
+1. Central Server (Go)
+- WebSocket server for real-time communication
+- Configuration management
+- Station health monitoring
+- Session synchronization
+2. Dashboard (React)
+- Real-time station overview
+- Drag-and-drop configuration
+- Session scheduling
+- Performance monitoring
+3. Station Clients
+
+- Local system management
+- Game file handling
+- Performance metrics reporting
+
+## Implementation Highlights
+### Configuration Management
+```go
+type ConfigPreset struct {
+    Name        string `json:"name"`
+    Track       string `json:"track"`
+    Cars        []string `json:"cars"`
+    Weather     WeatherConfig `json:"weather"`
+    RaceParams  RaceParameters `json:"race_params"`
+}
+
+func (cm *ConfigManager) DeployToStations(
+    preset ConfigPreset,
+    stations []string,
+) error {
+    // Concurrent configuration deployment
+    for _, stationID := range stations {
+        go func(id string) {
+            station := cm.stations[id]
+            station.ApplyConfig(preset)
+        }(stationID)
+    }
+    return nil
+}
+```
+### Session Control
+```typescript
+
+interface SessionController {
+  startSession(stations: string[]): Promise<void>;
+  syncSettings(config: GameConfig): Promise<void>;
+  monitorStatus(): Observable<StationStatus[]>;
+}
+```
+## Performance & Scale
+### Challenges & Solutions
+1. File Synchronization
+
+- Challenge: Large game files and mods
+- Solution: Differential updates and caching
+2. Real-time Control
+
+- Challenge: Synchronized actions across stations
+- Solution: WebSocket-based command system
+3. Configuration Management
+
+- Challenge: Complex game settings
+- Solution: Templating system with presets
+## Future Development
+- [ ] AI-powered session recommendations
+- [ ] Advanced telemetry collection
+- [ ] Mobile companion app
+- [ ] Multi-location support
