@@ -5,56 +5,91 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Tsvetozar Biserov">
-  <nav class="fixed top-0 left-0 w-full flex justify-center">
+  <nav class="fixed top-0 left-0 w-full flex justify-center px-4">
     <div
-      class="flex justify-center md:justify-between items-center h-16 border-t-2 border-l-2 border-transparent backdrop-blur mt-4 w-3/4 px-4 rounded-xl transition-all bg-white/20 border-white/20"
+      class="flex justify-between items-center relative h-16 border-t-2 border-l-2 mt-4 w-full md:w-3/4 px-4 rounded-xl transition-all bg-white/20 border-white/20"
       id="navbar"
     >
+      <div
+        class="absolute top-0 left-0 w-full h-full -z-10 rounded-xl backdrop-blur"
+      >
+      </div>
       <a href="/" class="ml-2 text-2xl font-serif text-white"
         >Tsvetozar Biserov</a
       >
-      <div class="hidden md:flex gap-2 -mt-0.5">
-        <a
-          href="#about"
-          class="text-black bg-white px-6 py-2 rounded-lg transition-all"
-          >About</a
+      <div
+        id="links"
+        class="hidden md:flex fixed top-18 left-0 overflow-hidden h-0 transition-all rounded-lg p-4 w-full md:static md:w-auto md:p-0 md:h-auto -mt-0.5 gap-2"
+      >
+        <div class="flex relative flex-col md:flex-row gap-2 p-4 w-full">
+          <div
+            class="absolute top-0 left-0 -z-10 w-full h-full md:hidden backdrop-blur bg-white/30 border-t-2 border-l-2 border-white/20 p-2 md:p-0 rounded-lg"
+          >
+          </div>
+          <a
+            href="#about"
+            class="text-black bg-white px-6 py-2 text-lg md:text-base rounded-lg transition-all"
+            >About</a
+          >
+          <a
+            href="#projects"
+            class="text-white hover:bg-white/30 px-6 py-2 text-lg md:text-base rounded-lg transition-all"
+            >Projects</a
+          >
+          <a
+            href="mailto:contact@chechu.dev"
+            class="text-white hover:bg-white/30 px-6 py-2 text-lg md:text-base rounded-lg transition-all"
+            >Contact</a
+          >
+        </div>
+      </div>
+      <div class="md:hidden">
+        <button
+          id="menu-button"
+          class="text-white hover:bg-white/30 p-2 rounded-lg transition-all"
         >
-        <a
-          href="#projects"
-          class="text-white hover:bg-white/30 px-6 py-2 rounded-lg transition-all"
-          >Projects</a
-        >
-        <a
-          href="mailto:contact@chechu.dev"
-          class="text-white hover:bg-white/30 px-6 py-2 rounded-lg transition-all"
-          >Contact</a
-        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="size-8"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M6 12h14M8 18h12"></path>
+          </svg>
+        </button>
       </div>
     </div>
   </nav>
 
   <div
-    class="flex flex-col justify-center items-center gap-6 p-6 md:p-12 h-full bg-gradient-to-b from-blue-900 to-slate-900"
+    class="flex flex-col justify-between py-14 sm:items-center gap-6 p-6 md:p-12 h-full bg-gradient-to-b from-blue-900 to-slate-900"
     id="header"
   >
-    <h1
-      class="text-3xl text-center md:text-4xl font-serif font-light text-gray-300"
-    >
-      Hi! I'm Tsvetozar Biserov
-    </h1>
-
-    <div class="flex flex-col justify-center items-center gap-2">
-      <h2 class="text-5xl text-center md:text-6xl font-semibold text-white">
+    <div></div>
+    <div class="flex flex-col justify-center sm:items-center gap-6">
+      <h1
+        class="text-4xl text-left sm:text-center md:text-4xl font-serif font-light text-gray-300"
+      >
+        Hi! I'm Tsvetozar Biserov
+      </h1>
+      <h2 class="text-5xl sm:text-center md:text-6xl font-semibold text-white">
         Backend Engineer & API Developer
       </h2>
-      <h2 class="text-5xl text-center md:text-6xl font-semibold text-blue-300">
+      <h2
+        class="text-4xl sm:text-center md:text-4xl font-semibold text-blue-300"
+      >
         Crafting Scalable Solutions
       </h2>
     </div>
     <div class="flex flex-col justify-center items-center gap-2 mt-2">
       <a
         href="mailto:contact@chechu.dev"
-        class="text-lg transition-all bg-blue-700 hover:bg-blue-600 px-6 py-3 rounded-lg shadow"
+        class="sm:text-lg transition-all bg-blue-700 hover:bg-blue-600 w-full sm:w-auto text-2xl text-center font-bold px-6 py-3 rounded-lg shadow"
         >Let's talk</a
       >
       <span class="text-slate-400 text-sm"
@@ -63,7 +98,7 @@ import Layout from "../layouts/Layout.astro";
     </div>
   </div>
 
-  <div class="flex flex-col gap-12 w-2/3 mx-auto">
+  <div class="flex flex-col gap-12 p-4 md:w-2/3 mx-auto">
     <section class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
       <GeneralSkill
         name="Backend Development"
@@ -87,7 +122,7 @@ import Layout from "../layouts/Layout.astro";
       />
     </section>
 
-    <section class="flex flex-col gap-4">
+    <section class="flex flex-col gap-4" id="projects">
       <h3 class="text-center font-serif text-2xl">Projects</h3>
       <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
         <ProjectCard
@@ -155,4 +190,32 @@ import Layout from "../layouts/Layout.astro";
     scroll();
   });
   scroll();
+
+  const menuButton = document.getElementById("menu-button");
+  menuButton?.addEventListener("click", () => {
+    const links = document.getElementById("links");
+
+    links?.classList.toggle("appear");
+    if (links?.classList.contains("appear")) {
+      links?.classList.remove("hidden");
+      links?.classList.add("flex");
+      links.style.height = "auto";
+      const height = links.clientHeight + "px";
+      links.style.height = "0px";
+      setTimeout(() => {
+        if (links) {
+          links.style.height = height;
+        }
+      }, 0);
+    } else {
+      if (links) {
+        links.style.height = "0px";
+      }
+      setTimeout(() => {
+        links?.classList.remove("flex");
+        links?.classList.add("hidden");
+        links?.style.removeProperty("height");
+      }, 125);
+    }
+  });
 </script>
