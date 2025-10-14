@@ -16,22 +16,22 @@ const { title, description, image, stack } = Astro.props;
   class="hover:bg-slate-700 transition-all border-t-2 border-l-2 border-slate-600 bg-slate-800 rounded-lg p-4 flex flex-col justify-between gap-4"
 >
   <div class="flex flex-col gap-4">
-    { image ?
-      <Image
-            width={300}
-            height={220}
-            src={image}
-            alt={title}
-            class="rounded-lg w-full h-55 object-cover"
-          /> :
-      <div class="w-full h-55 bg-slate-900 rounded-lg">
-        <div class="flex justify-center items-center h-full">
-          <span class="text-blue-300 text-4xl">🚧</span>
+    { image ? (
+        <Image
+          width={300}
+          height={220}
+          src={image}
+          alt={title}
+          class="rounded-lg w-full h-55 object-cover"
+        />
+      ) : (
+        <div class="w-full h-55 bg-slate-900 rounded-lg">
+          <div class="flex justify-center items-center h-full">
+            <span class="text-blue-300 text-4xl">🚧</span>
+          </div>
         </div>
-      </div>
-    
+      )
     }
-    
 
     <div class="flex flex-col gap-2">
       <h3 class="text-xl font-semibold">{title}</h3>
@@ -39,7 +39,7 @@ const { title, description, image, stack } = Astro.props;
     </div>
   </div>
   <div class="flex flex-col gap-2">
-    <div class="flex gap-2">
+    <div class="flex gap-2 flex-wrap">
       {
         stack.map((item) => (
           <span class="text-blue-200 bg-blue-800 px-2 py-1 rounded-lg">
@@ -48,6 +48,6 @@ const { title, description, image, stack } = Astro.props;
         ))
       }
     </div>
-  <!-- <span class="text-blue-300 w-full rounded-lg">View case study</span> --> 
+    <!-- <span class="text-blue-300 w-full rounded-lg">View case study</span> -->
   </div>
 </div>
