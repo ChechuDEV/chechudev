@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@source inline("bg-white/20 border-white/20")
+@source inline("bg-white/20 border-white/20");
 
 @theme {
   --color-dark-blue: #00172a;
