@@ -1,5 +1,6 @@
 ---
 import { getCollection, render } from "astro:content";
+import { Image } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
 
 export async function getStaticPaths() {
@@ -16,11 +17,17 @@ const { Content } = await render(project);
 
 <Layout title={project.data.title}>
     <div class="pt-32">
-        <img
-            src={project.data.image}
-            alt={project.data.title}
-            class="mb-8 w-full rounded-lg"
-        />
+        {
+            project.data.image && (
+                <Image
+                    src={project.data.image}
+                    alt={project.data.title}
+                    width={2532}
+                    height={1170}
+                    class="mb-8 w-full rounded-lg"
+                />
+            )
+        }
         <h1 class="mb-6 text-4xl font-semibold text-balance text-white">
             {project.data.title}
         </h1>
