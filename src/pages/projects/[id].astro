@@ -3,11 +3,11 @@ import { getCollection, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("projects");
-  return posts.map((project) => ({
-    params: { id: project.id },
-    props: { project },
-  }));
+    const posts = await getCollection("projects");
+    return posts.map((project) => ({
+        params: { id: project.id },
+        props: { project },
+    }));
 }
 
 const { project } = Astro.props;
@@ -15,7 +15,27 @@ const { Content } = await render(project);
 ---
 
 <Layout title={project.data.title}>
-  <div class="mx-auto prose dark:prose-invert">
-    <Content />
-  </div>
+    <div class="pt-32">
+        <img
+            src={project.data.image}
+            alt={project.data.title}
+            class="mb-8 w-full rounded-lg"
+        />
+        <h1 class="mb-6 text-4xl font-semibold text-balance text-white">
+            {project.data.title}
+        </h1>
+        <p class="text-white/70">
+            {project.data.description}
+        </p>
+        {
+            project.data.tech.map((t) => (
+                <span class="mt-4 mr-2 inline-block rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70">
+                    {t}
+                </span>
+            ))
+        }
+        <div class="markdown">
+            <Content />
+        </div>
+    </div>
 </Layout>
