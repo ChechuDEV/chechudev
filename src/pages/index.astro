@@ -7,6 +7,8 @@ import {
     Wrench,
     Search,
     Cloud,
+    Mail,
+    Calendar,
 } from "@lucide/astro";
 import Layout from "../layouts/Layout.astro";
 import Service from "../components/home/Service.astro";
@@ -34,7 +36,7 @@ import Project from "../components/Project.astro";
         <div class="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center">
             <a
                 href="#contact"
-                class="group inline-flex items-center justify-center rounded-lg bg-blue-700 px-4 py-3 text-sm font-semibold text-white shadow-sm shadow-indigo-500/20 transition hover:bg-blue-600 hover:shadow-sm hover:shadow-indigo-500/30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400">
+                class="group inline-flex items-center justify-center rounded-lg bg-blue-700 px-4 py-3 text-sm font-semibold text-white shadow-sm shadow-indigo-500/20 transition hover:bg-blue-600 hover:shadow-md hover:shadow-indigo-500/30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400">
                 <ArrowRight
                     class="mr-2 size-4 transition-transform group-hover:translate-x-0.5"
                 />
@@ -173,7 +175,7 @@ import Project from "../components/Project.astro";
                                 "Networking",
                                 "Distributed Systems",
                             ]}
-                            image="images/simcenter.png"
+                            image="/images/simcenter.png"
                             category="App"
                         />
                     </div>
@@ -191,6 +193,40 @@ import Project from "../components/Project.astro";
                     />
                 </div>
             </section>
+        </section>
+        <section class="flex flex-col gap-4" id="contact">
+            <h2 class="text-2xl font-bold text-white">Get in touch</h2>
+            <p class="text-base leading-7 text-pretty text-white/70">
+                If you're interested in working together or just want to say hi,
+                feel free to reach out! I'm always open to discussing new
+                projects, collaborations, or opportunities to contribute to
+                interesting work.
+            </p>
+            <div class="flex flex-row gap-2">
+                <a
+                    href="mailto:contact@chechu.dev"
+                    class="group inline-flex items-center justify-center rounded-md border border-white/20 bg-white/10 px-4 py-2 text-sm text-white shadow-sm transition hover:bg-white/20 hover:shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+                    <Mail class="mr-2 size-4" />
+                    Send an email
+                </a>
+                <!-- Calendly link widget begin -->
+                <link
+                    href="https://assets.calendly.com/assets/external/widget.css"
+                    rel="stylesheet"
+                />
+                <script
+                    src="https://assets.calendly.com/assets/external/widget.js"
+                    type="text/javascript"
+                    async
+                ></script>
+                <!-- Calendly link widget end -->
+                <button
+                    onclick="Calendly.initPopupWidget({url: 'https://calendly.com/contact-chechu/30min'});return false;"
+                    class="group inline-flex cursor-pointer items-center justify-center rounded-md border border-white/20 bg-white/10 px-4 py-2 text-sm text-white shadow-sm transition hover:bg-white/20 hover:shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+                    <Calendar class="mr-2 size-4" />
+                    Schedule a meeting
+                </button>
+            </div>
         </section>
     </div>
 </Layout>
