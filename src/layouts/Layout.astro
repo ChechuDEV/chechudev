@@ -1,49 +1,84 @@
 ---
 import "../styles/global.css";
+import Navbar from "../components/Navbar.astro";
 
 interface Props {
-	title: string;
+    title: string;
 }
 
 const { title } = Astro.props;
 ---
+
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="I'm Chechu, a software developer currently working as a freelancer." />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="canonical" href="https://chechu.dev"/>
-		<title>{title}</title>
-	</head>
-	<body class="bg-slate-900 text-white relative">
-		<slot />
-	</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="description"
+            content="I'm Tsvetozar, a software developer currently working as a freelancer."
+        />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="canonical" href="https://chechu.dev" />
+        <title>{title}</title>
+    </head>
+    <body class="relative bg-slate-900 text-white">
+        <Navbar />
+        <div class="mx-auto max-w-5xl px-6">
+            <slot />
+        </div>
+        <footer
+            class="mt-12 flex flex-col items-center justify-center py-12 text-white">
+            Copyright © Tsvetozar Biserov 2026
+        </footer>
+    </body>
 </html>
-<style is:global>
-	@font-face {
-		font-family: "Montserrat";
-		font-style: normal;
-		font-display: swap;
-		src: url("/fonts/Montserrat-VariableFont_wght.ttf") format("truetype");
-	}
+<script>
+    const navbar = document.getElementById("navbar");
+    navbar?.classList.remove("bg-white/20");
+    navbar?.classList.remove("border-white/20");
 
-	@font-face {
-		font-family: "Inter";
-		font-style: normal;
-		font-display: swap;
-		src: url("/fonts/Inter.ttf") format("truetype");
-	}
+    function scroll() {
+        if (window.scrollY > 10) {
+            navbar?.classList.add("bg-white/20");
+            navbar?.classList.add("border-white/20");
+            navbar?.classList.remove("border-transparent");
+        } else {
+            navbar?.classList.remove("bg-white/20");
+            navbar?.classList.remove("border-white/20");
+            navbar?.classList.add("border-transparent");
+        }
+    }
+    document.addEventListener("scroll", () => {
+        scroll();
+    });
+    scroll();
 
-	body, html {
-		margin: 0;
-		padding: 0;
-		height: 100%;
-		font-family: "Inter", sans-serif;
-		scroll-behavior: smooth;
-	}
+    const menuButton = document.getElementById("menu-button");
+    menuButton?.addEventListener("click", () => {
+        const links = document.getElementById("links");
 
-	h2 {
-	}
-</style>
+        links?.classList.toggle("appear");
+        if (links?.classList.contains("appear")) {
+            links?.classList.remove("hidden");
+            links?.classList.add("flex");
+            links.style.height = "auto";
+            const height = links.clientHeight + "px";
+            links.style.height = "0px";
+            setTimeout(() => {
+                if (links) {
+                    links.style.height = height;
+                }
+            }, 0);
+        } else {
+            if (links) {
+                links.style.height = "0px";
+            }
+            setTimeout(() => {
+                links?.classList.remove("flex");
+                links?.classList.add("hidden");
+                links?.style.removeProperty("height");
+            }, 125);
+        }
+    });
+</script>
