@@ -1,131 +1,64 @@
 ---
-title: 'SimCenter - Racing Simulator Management Dashboard'
-description: 'Centralized control system for managing multiple Assetto Corsa racing simulators, enabling synchronized game sessions and configurations across simulation stations.'
-tech: ['Go', 'React', 'WebSocket', 'System Management']
-date: '2024-01'
-status: 'Production'
-client: 'Racing Simulation Centers'
-thumbnail: https://picsum.photos/400/300
-image: https://picsum.photos/600/300
+title: "Simcenter"
+description:
+    "Centralized control system for managing multiple Assetto Corsa racing
+    simulators, enabling synchronized game sessions and configurations across
+    simulation stations."
+tech: ["App", "Go", "Svelte", "Networking", "Distributed Systems"]
+date: "2024-01"
+image: "/images/simcenterproject.png"
 ---
 
-## Overview
+## The challenge
 
-SimCenter is a centralized management system that controls multiple Assetto Corsa racing simulator stations simultaneously. It eliminates the need for manual configuration of each station, enabling operators to manage race sessions, settings, and configurations from a single dashboard.
+Racing simulation centers often operate multiple Assetto Corsa stations, each
+requiring manual configuration and management. This process is time-consuming
+and prone to errors, especially during events with multiple sessions. The
+clients needed a solution that centralized the control of all stations, allowing
+for synchronized game sessions, real-time monitoring, and efficient
+configuration management from a single dashboard.
 
-## Key Features
+## The architecture
 
-### Centralized Control
-- Simultaneous launch of race sessions across all stations
-- Synchronized game settings and configurations
-- Real-time status monitoring of all stations
-- Preset management for different event types
+Simcenter is designed as a distributed system with a central brain and multiple
+edge agents.
 
-### Station Management
-```go
-type SimStation struct {
-    ID          string    `json:"id"`
-    Status      string    `json:"status"`
-    CurrentGame *GameSession `json:"current_game"`
-    Config      StationConfig `json:"config"`
-}
+**1. Central brain (Go & Svelte):** A central server manages the overall system,
+handling configuration deployment, session control, and real-time monitoring. A
+web-based dashboard provides a user-friendly interface for controlling the
+system, allowing operators to launch sessions, monitor station status, and
+manage configurations.
 
-func (s *SimStation) ApplyConfig(cfg ConfigPreset) error {
-    // Apply configuration to local Assetto Corsa instance
-    // Handle file modifications and game settings
-}
+**2. Edge agents (Go):** Each simulation station runs a local agent responsible
+for applying configurations, managing the Assetto Corsa instance, and reporting
+status back to the central server.
 
-```
+## Key Technical Hurdles
 
-### Real-time Monitoring
+**1. Real-time synchronization:** Ensuring that the dashboard accurately
+reflects the status of all stations in real-time without saturating the network
+with excessive updates was a real challenge. We implemented Server-Sent Events
+(SSE) to push updates from the central server to the dashboard efficiently, and
+WebSockets for communication between the central server and edge agents.
 
-```typescript
-interface StationStatus {
-  id: string;
-  isOnline: boolean;
-  currentSession?: {
-    track: string;
-    car: string;
-    timeRemaining: number;
-    players: Player[];
-  };
-  systemMetrics: {
-    cpu: number;
-    memory: number;
-    temperature: number;
-  };
-}
-```
+**2. Operational simplicity:** The system needed to be easy to use for operators
+who may not be technically savvy. We focused on creating an intuitive dashboard
+with clear controls and visual feedback, ensuring that operators could manage
+sessions without needing to understand the underlying technical details.
 
-## Technical Architecture
+## The impact
 
-### System Design
-1. Central Server (Go)
-- WebSocket server for real-time communication
-- Configuration management
-- Station health monitoring
-- Session synchronization
-2. Dashboard (React)
-- Real-time station overview
-- Drag-and-drop configuration
-- Session scheduling
-- Performance monitoring
-3. Station Clients
+**- Reduced Prep Time:** Significantly reduced the time required to prepare for
+racing sessions, allowing to create a group and launch a session in seconds
+instead of minutes.
 
-- Local system management
-- Game file handling
-- Performance metrics reporting
+**- Improved User Experience:** Enhanced the overall user experience for both
+operators and racers, providing a seamless and efficient way to manage multiple
+simulators.
 
-## Implementation Highlights
-### Configuration Management
-```go
-type ConfigPreset struct {
-    Name        string `json:"name"`
-    Track       string `json:"track"`
-    Cars        []string `json:"cars"`
-    Weather     WeatherConfig `json:"weather"`
-    RaceParams  RaceParameters `json:"race_params"`
-}
+**- Scalability:** The system is designed to scale easily, allowing for the
+addition of more stations without significant changes to the architecture.
 
-func (cm *ConfigManager) DeployToStations(
-    preset ConfigPreset,
-    stations []string,
-) error {
-    // Concurrent configuration deployment
-    for _, stationID := range stations {
-        go func(id string) {
-            station := cm.stations[id]
-            station.ApplyConfig(preset)
-        }(stationID)
-    }
-    return nil
-}
-```
-### Session Control
-```typescript
-
-interface SessionController {
-  startSession(stations: string[]): Promise<void>;
-  syncSettings(config: GameConfig): Promise<void>;
-  monitorStatus(): Observable<StationStatus[]>;
-}
-```
-## Performance & Scale
-### Challenges & Solutions
-1. File Synchronization
-
-- Challenge: Large game files and mods
-- Solution: Differential updates and caching
-2. Real-time Control
-
-- Challenge: Synchronized actions across stations
-- Solution: WebSocket-based command system
-3. Configuration Management
-
-- Challenge: Complex game settings
-- Solution: Templating system with presets
-## Future Development
-- [ ] AI-powered session recommendations
-- [ ] Advanced telemetry collection
-- [ ] Mobile companion app
-- [ ] Multi-location support
+Simcenter has become an essential tool for many racing simulation centers,
+streamlining operations and enhancing the experience for both operators and
+racers.
