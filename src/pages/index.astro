@@ -1,219 +1,196 @@
 ---
-import GeneralSkill from "../components/GeneralSkill.astro";
-import ProjectCard from "../components/ProjectCard.astro";
+import {
+    ArrowRight,
+    Brain,
+    Workflow,
+    Zap,
+    Wrench,
+    Search,
+    Cloud,
+} from "@lucide/astro";
 import Layout from "../layouts/Layout.astro";
+import Service from "../components/home/Service.astro";
+import Project from "../components/Project.astro";
 ---
 
 <Layout title="Tsvetozar Biserov">
-  <nav class="fixed top-0 left-0 w-full flex justify-center px-4">
-    <div
-      class="flex justify-between items-center relative h-16 border-t-2 border-l-2 border-transparent mt-4 w-full md:w-3/4 px-4 rounded-xl transition-all"
-      id="navbar"
-    >
-      <div
-        class="absolute top-0 left-0 w-full h-full -z-10 rounded-xl backdrop-blur"
-      >
-      </div>
-      <a href="/" class="ml-2 text-2xl font-serif text-white"
-        >Tsvetozar Biserov</a
-      >
-      <div
-        id="links"
-        class="hidden md:flex fixed top-18 left-0 overflow-hidden h-0 transition-all rounded-lg p-4 w-full md:static md:w-auto md:p-0 md:h-auto -mt-0.5 gap-2"
-      >
-        <div class="flex relative flex-col md:flex-row gap-2 p-4 w-full">
-          <div
-            class="absolute top-0 left-0 -z-10 w-full h-full md:hidden backdrop-blur bg-white/20 border-t-2 border-l-2 border-white/20 p-2 md:p-0 rounded-lg"
-          >
-          </div>
-          <a
-            href="#about"
-            class="text-black bg-white px-6 py-2 text-lg md:text-base rounded-lg transition-all"
-            >About</a
-          >
-          <a
-            href="#projects"
-            class="text-white hover:bg-white/30 px-6 py-2 text-lg md:text-base rounded-lg transition-all"
-            >Projects</a
-          >
-          <a
-            href="mailto:contact@chechu.dev"
-            class="text-white hover:bg-white/30 px-6 py-2 text-lg md:text-base rounded-lg transition-all"
-            >Contact</a
-          >
+    <header
+        class="mb-4 border-b border-white/10 pt-24 pb-12 md:pt-28"
+        id="header">
+        <p
+            class="mb-6 inline-flex items-center gap-2 text-xs font-medium tracking-wide text-white/70 uppercase">
+            Backend systems · automation · infrastructure tooling
+        </p>
+        <h1
+            class="mb-6 text-4xl font-semibold tracking-tight text-balance text-white sm:text-5xl md:text-6xl">
+            Backend engineering for performance-critical and operationally messy
+            systems
+        </h1>
+        <p
+            class="mb-8 max-w-2xl text-base leading-7 text-pretty text-white/75 sm:text-lg sm:leading-8">
+            I build <u>Go</u> & <u>Rust</u> backends, internal tools, and admin dashboards
+            that make systems faster, simpler, and cheaper to operate.
+        </p>
+        <div class="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <a
+                href="#contact"
+                class="group inline-flex items-center justify-center rounded-lg bg-blue-700 px-4 py-3 text-sm font-semibold text-white shadow-sm shadow-indigo-500/20 transition hover:bg-blue-600 hover:shadow-sm hover:shadow-indigo-500/30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400">
+                <ArrowRight
+                    class="mr-2 size-4 transition-transform group-hover:translate-x-0.5"
+                />
+                Get in touch
+            </a>
+            <a
+                href="#projects"
+                class="inline-flex items-center justify-center rounded-lg border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white/90 transition hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/30">
+                See projects
+            </a>
         </div>
-      </div>
-      <div class="md:hidden">
-        <button
-          id="menu-button"
-          class="text-white hover:bg-white/30 p-2 rounded-lg transition-all"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="size-8"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M6 12h14M8 18h12"></path>
-          </svg>
-        </button>
-      </div>
+        <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/60">
+            <span class="inline-flex items-center gap-2">
+                <span class="h-1.5 w-1.5 rounded-full bg-emerald-400/80"></span>
+                Remote-friendly
+            </span>
+            <span class="inline-flex items-center gap-2">
+                <span class="h-1.5 w-1.5 rounded-full bg-emerald-400/80"></span>
+                English · Spanish · Catalan · Bulgarian
+            </span>
+            <span class="inline-flex items-center gap-2">
+                <span class="h-1.5 w-1.5 rounded-full bg-emerald-400/80"></span>
+                Typical projects: 2-6 weeks
+            </span>
+        </div>
+    </header>
+
+    <div class="flex flex-col gap-12">
+        <section class="flex flex-col gap-4" id="about">
+            <h2 class="text-2xl font-bold text-white">About me</h2>
+            <p class="text-base leading-7 text-pretty text-white/70">
+                I'm Tsvetozar, a software developer currently working as a
+                freelancer. I have a strong background in backend development,
+                with a focus on performance-critical systems and operational
+                tooling. I am passionate about building scalable solutions that
+                make complex systems easier to manage and more efficient. I have
+                experience working with a variety of technologies, including Go
+                and Rust. I enjoy learning new technologies and improving my
+                skills.
+            </p>
+        </section>
+        <section class="flex flex-col gap-6" id="services">
+            <h2 class="text-2xl font-bold text-white">
+                How can I help your team?
+            </h2>
+            <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+                <div class="grid grid-rows-3 gap-y-4">
+                    <div class="row-span-2 h-full">
+                        <Service
+                            title="High-performance backends"
+                            description="Build fast, memory-safe, and efficient backends for performance-critical systems."
+                            features={[
+                                "Go and Rust native development",
+                                "Optimized for low latency, high throughput, and reliability",
+                            ]}
+                            icon={Zap}
+                        />
+                    </div>
+                    <div class="row-span-1 h-full">
+                        <Service
+                            title="Reverse Engineering"
+                            description="Product analysis, closed-system integration and deep-tech CLI tools."
+                            icon={Search}
+                        />
+                    </div>
+                </div>
+                <div class="grid grid-rows-3 gap-y-4">
+                    <div class="row-span-1 h-full">
+                        <Service
+                            title="Cloud & Infrastructure"
+                            description="Containerization, CI/CD, and Linux system tuning for maximum uptime."
+                            icon={Cloud}
+                        />
+                    </div>
+                    <div class="order-first row-span-2 h-full md:order-0">
+                        <Service
+                            title="Operations automation"
+                            description="Replace manual workflows with reliable services and internal tooling."
+                            features={[
+                                "Billing & provisioning pipelines",
+                                "Custom dashboards and backoffices",
+                                "Error reduction",
+                            ]}
+                            icon={Workflow}
+                        />
+                    </div>
+                </div>
+                <div class="grid grid-rows-3 gap-y-4">
+                    <div class="row-span-2 h-full">
+                        <Service
+                            title="Architecture Rescue"
+                            description="Audit and refactor unstable & legacy codebases to modern, maintainable architectures."
+                            features={[
+                                "Deadlock & leak hunting",
+                                "Legacy code modernization",
+                                "Technical debt reduction",
+                            ]}
+                            icon={Wrench}
+                        />
+                    </div>
+                    <div class="row-span-1 h-full">
+                        <Service
+                            title="Technical Consulting"
+                            description="Code reviews, infrastructure planning, and bottleneck analysis."
+                            icon={Brain}
+                        />
+                    </div>
+                </div>
+            </div>
+
+            <section class="flex flex-col gap-6" id="projects">
+                <h3 class="text-2xl font-bold text-white">Featured projects</h3>
+                <div
+                    class="grid grid-cols-1 grid-rows-2 gap-4 md:grid-cols-2 xl:grid-cols-2">
+                    <Project
+                        name="Lumen Proxy"
+                        description="High-performance network proxy designed for low-latency routing and massive concurrent connection management."
+                        stack={[
+                            "Rust",
+                            "Networking",
+                            "Perf",
+                            "Balancing",
+                            "Tokio",
+                            "Concurrent Systems",
+                        ]}
+                        category="Systems"
+                    />
+                    <div class="row-span-2">
+                        <Project
+                            link="/projects/simcenter"
+                            name="Simcenter Software"
+                            description="Distributed management system for racing simulation centers, handling real-time hardware control and center-wide orchestration."
+                            stack={[
+                                "Go",
+                                "Svelte",
+                                "Networking",
+                                "Distributed Systems",
+                            ]}
+                            image="images/simcenter.png"
+                            category="App"
+                        />
+                    </div>
+                    <Project
+                        name="Billing & Provisioning"
+                        description="Custom billing engine and provisioning pipeline that centralizes multiple payment gateways (PSPs) into a unified automated workflow."
+                        stack={[
+                            "Go",
+                            "Svelte",
+                            "Payments Integration",
+                            "API Design",
+                            "Architecture",
+                        ]}
+                        category="Automation"
+                    />
+                </div>
+            </section>
+        </section>
     </div>
-  </nav>
-
-  <div
-    class="flex flex-col justify-between py-14 sm:items-center gap-6 p-6 md:p-12 h-full bg-gradient-to-b from-blue-900 to-slate-900"
-    id="header"
-  >
-    <div></div>
-    <div class="flex flex-col justify-center sm:items-center gap-4">
-      <h1
-        class="block text-2xl text-center md:text-4xl font-serif font-light text-gray-300"
-      >
-        Hi! I'm Tsvetozar Biserov
-      </h1>
-      <h2 class="text-4xl text-center md:text-6xl font-semibold text-white">
-        Backend Engineer & API Developer
-      </h2>
-      <h2 class="text-2xl text-center md:text-4xl font-semibold text-blue-300">
-        Crafting Scalable Solutions
-      </h2>
-    </div>
-    <div class="flex flex-col justify-center items-center gap-2 my-2">
-      <a
-        href="mailto:contact@chechu.dev"
-        class="sm:text-lg transition-all bg-blue-700 hover:bg-blue-600 w-full sm:w-auto text-2xl text-center font-bold px-6 py-3 rounded-lg shadow"
-        >Let's talk</a
-      >
-      <span class="text-slate-400 text-sm"
-        >Available for freelance projects</span
-      >
-    </div>
-  </div>
-
-  <div class="flex flex-col gap-12 p-4 md:w-2/3 mx-auto">
-    <section class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
-      <GeneralSkill
-        name="Backend Development"
-        description="Building scalable server-side systems with Go, Java, Kotlin, and NodeJS."
-        icon="/icons/server.svg"
-      />
-      <GeneralSkill
-        name="Database & Storage"
-        description="Optimized database solutions with MySQL, MongoDB, and Redis."
-        icon="/icons/database.svg"
-      />
-      <GeneralSkill
-        name="API Development"
-        description="RESTful and GraphQL APIs with Gin, Spring and Express."
-        icon="/icons/cloud.svg"
-      />
-      <GeneralSkill
-        name="DevOps & Infrastructure"
-        description="CI/CD pipelines, Docker, Github Actions."
-        icon="/icons/git-branch.svg"
-      />
-    </section>
-
-    <section class="flex flex-col gap-4" id="projects">
-      <h3 class="text-center font-serif text-2xl">Projects</h3>
-      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-        <ProjectCard
-          image="/images/simcenter.png"
-          title="Simcenter"
-          description="Distributed control system that synchronises multiple Assetto Corsa game sessions accross different computers."
-          stack={["Go", "Svelte", "Gin"]}
-        />
-        <ProjectCard
-          image="/images/LumenProxy.png"
-          title="Lumen Proxy"
-          description="Game proxy system that manages multiple connections simultaneously. Eases up host configuration and improves administration tools."
-          stack={["Rust", "Networking"]}
-        />
-        <ProjectCard
-          title="Melius"
-          description="Minecraft Game Server made from scratch, decreasing resource usage and improving performance."
-          stack={["Rust", "Networking", "Optimization"]}
-        />
-        <ProjectCard
-          title="Mod Plugin Manager"
-          description="Minecraft plugin that allows developers to add custom objects and textures to the game without mods or conflicts between each other."
-          stack={["Kotlin", "Minecraft", "Spigot API"]}
-        />
-        <ProjectCard
-          image="/images/MCDevTools.png"
-          title="MCDevTools"
-          description="A project featuring a set of tools to deploy ephemeral Minecraft development servers with speed and ease."
-          stack={["Go", "NextJS", "Docker"]}
-        />
-        <ProjectCard
-          image="/images/Algorithms.png"
-          title="Algorithm Visualizer"
-          description="Website for visualizing different sorting algorithms, measure their time, operations amount, etc."
-          stack={["TypeScript", "AstroJS"]}
-        />
-      </div>
-    </section>
-  </div>
-
-  <footer
-    class="py-12 mt-12 flex flex-col justify-center items-center bg-gradient-to-b from-slate-900 to-blue-950 text-white"
-  >
-    Copyright © Tsvetozar Biserov 2025
-  </footer>
 </Layout>
-
-<script>
-  const navbar = document.getElementById("navbar");
-  navbar?.classList.remove("bg-white/20");
-  navbar?.classList.remove("border-white/20");
-
-  function scroll() {
-    if (window.scrollY > 10) {
-      navbar?.classList.add("bg-white/20");
-      navbar?.classList.add("border-white/20");
-      navbar?.classList.remove("border-transparent");
-    } else {
-      navbar?.classList.remove("bg-white/20");
-      navbar?.classList.remove("border-white/20");
-      navbar?.classList.add("border-transparent");
-    }
-  }
-  document.addEventListener("scroll", () => {
-    scroll();
-  });
-  scroll();
-
-  const menuButton = document.getElementById("menu-button");
-  menuButton?.addEventListener("click", () => {
-    const links = document.getElementById("links");
-
-    links?.classList.toggle("appear");
-    if (links?.classList.contains("appear")) {
-      links?.classList.remove("hidden");
-      links?.classList.add("flex");
-      links.style.height = "auto";
-      const height = links.clientHeight + "px";
-      links.style.height = "0px";
-      setTimeout(() => {
-        if (links) {
-          links.style.height = height;
-        }
-      }, 0);
-    } else {
-      if (links) {
-        links.style.height = "0px";
-      }
-      setTimeout(() => {
-        links?.classList.remove("flex");
-        links?.classList.add("hidden");
-        links?.style.removeProperty("height");
-      }, 125);
-    }
-  });
-</script>
