@@ -1,0 +1,76 @@
+---
+interface Link {
+    title: string;
+    href: string;
+}
+
+const currentPath = Astro.url.pathname;
+
+const links: Link[] = [
+    {
+        title: "Home",
+        href: "/",
+    },
+    {
+        title: "Projects",
+        href: "/#projects",
+    },
+    {
+        title: "Contact",
+        href: "mailto:contact@chechu.dev",
+    },
+];
+---
+
+<nav class="fixed top-0 left-0 z-10 flex w-full justify-center px-4">
+    <div
+        class="relative mt-4 flex h-16 w-full max-w-5xl items-center justify-between rounded-xl border-t-2 border-l-2 border-transparent px-4 transition-all"
+        id="navbar">
+        <div
+            class="absolute top-0 left-0 -z-10 h-full w-full rounded-xl backdrop-blur">
+        </div>
+        <a href="/" class="ml-2 text-xl font-bold text-white">
+            Tsvetozar Biserov
+        </a>
+        <div
+            id="links"
+            class="fixed top-18 left-0 -mt-0.5 hidden h-0 w-full gap-2 overflow-hidden rounded-lg p-4 transition-all md:static md:flex md:h-auto md:w-auto md:p-0">
+            <div
+                class="relative flex w-full flex-col items-center gap-2 p-4 md:flex-row">
+                <div
+                    class="absolute top-0 left-0 -z-10 h-full w-full rounded-lg border-t-2 border-l-2 border-white/20 bg-white/20 p-2 backdrop-blur md:hidden md:p-0">
+                </div>
+                {
+                    links.map((link) => (
+                        <a
+                            href={link.href}
+                            class={`w-full rounded-md px-4 py-2 text-center text-sm text-white transition-all hover:bg-white/30 ${
+                                currentPath === link.href ? "bg-white/30" : ""
+                            }`}>
+                            {link.title}
+                        </a>
+                    ))
+                }
+            </div>
+        </div>
+        <div class="md:hidden">
+            <button
+                id="menu-button"
+                class="rounded-md p-2 text-white transition-all hover:bg-white/30">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="size-8"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M4 6h16M6 12h14M8 18h12">
+                    </path>
+                </svg>
+            </button>
+        </div>
+    </div>
+</nav>
