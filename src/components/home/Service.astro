@@ -1,0 +1,42 @@
+---
+import { type Icon as IconType } from "@lucide/astro";
+
+interface Props {
+    title: string;
+    description?: string;
+    features?: string[];
+    icon: typeof IconType;
+}
+
+const item = Astro.props;
+const { title, description, features } = item;
+---
+
+<div
+    class="group flex h-full flex-col items-start justify-between rounded-lg border border-white/10 bg-white/5 p-6 backdrop-blur transition hover:bg-white/7">
+    <div class="flex flex-row items-start justify-between gap-4">
+        <div>
+            <h3 class="text-base font-semibold text-white">
+                {title}
+            </h3>
+            <p class="mt-2 text-sm leading-6 text-balance text-white/70">
+                {description}
+            </p>
+        </div>
+        <div
+            class="rounded-xl border border-white/10 bg-white/5 p-2 text-white/70">
+            <!-- icon -->
+            <item.icon class="size-6" />
+        </div>
+    </div>
+
+    {
+        features && (
+            <ul class="mt-4 w-full list-inside list-disc space-y-2 border-t border-white/25 pt-4 text-sm text-white/70">
+                {features.map((feature) => (
+                    <li>{feature}</li>
+                ))}
+            </ul>
+        )
+    }
+</div>
