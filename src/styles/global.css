@@ -17,7 +17,52 @@
 @source inline("bg-white/20 border-white/20");
 
 @theme {
-  --color-dark-blue: #00172a;
+    --color-dark-blue: #00172a;
+    --font-sans: "Noto Sans", sans-serif;
+    --font-mono: "Noto Sans Mono", monospace;
 }
 
-@plugin "@tailwindcss/typography";
+.markdown p,
+.markdown li {
+    @apply mb-4 leading-8 text-pretty text-white/80;
+}
+
+.markdown a {
+    @apply text-blue-400 underline transition hover:text-blue-500;
+}
+
+.markdown code {
+    @apply px-1 py-0.5 font-mono text-sm;
+}
+
+.markdown pre {
+    @apply mb-4 overflow-x-auto rounded-lg bg-white/10 p-4;
+}
+
+.markdown pre code {
+    @apply bg-transparent p-0;
+}
+
+.markdown h1 {
+    @apply mt-8 mb-4 text-2xl font-bold;
+}
+
+.markdown h2 {
+    @apply mt-8 mb-4 text-xl font-bold;
+}
+
+.markdown h3 {
+    @apply mt-8 mb-4 text-lg font-bold;
+}
+
+.markdown ul {
+    @apply mb-4 ml-2 list-inside list-disc;
+}
+
+.markdown ol {
+    @apply mb-4 ml-2 list-inside list-decimal;
+}
+
+.markdown strong {
+    @apply font-bold;
+}
